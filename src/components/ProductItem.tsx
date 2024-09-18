@@ -1,0 +1,76 @@
+import { cn } from "@/lib/utils";
+import { HTMLAttributes } from "react";
+
+export type Product = {
+  id: number;
+  name: string;
+  price: number;
+  discount_percentage?: number;
+  image: string;
+};
+
+export const ProductItem = ({
+  product,
+  ...props
+}: { product: Product } & HTMLAttributes<HTMLDivElement>) => {
+  const finalPrice = product.discount_percentage
+    ? (product.price * (1 - product.discount_percentage / 100)).toFixed(2)
+    : product.price.toFixed(2);
+  return (
+    <a
+      className={cn(
+        "flex flex-col items-center p-2 w-48 h-48 md:w-32 md:h-32 lg:w-40 lg:h-40  bg-white border border-gray-200 cursor-pointer",
+        props.className
+      )}
+    >
+      <img
+        src={product.image}
+        alt={product.name}
+        className="w-40 md:w-20 lg:w-36 object-cover pb-1"
+      />
+      <h2 className="text-xs md:text-[10px] uppercase text-center line-clamp-2">
+        {product.name}
+      </h2>
+      <div className="flex gap-2 items-center py-1 md:py-0.5">
+        {product.discount_percentage && (
+          <p className="text-xs md:text-[8px]  text-orange-300 font-bold line-through">
+            {product.price} €
+          </p>
+        )}
+        <p className="md:text-xs font-bold text-orange-500">{finalPrice} €</p>
+      </div>
+    </a>
+  );
+};
+
+export const ProductItemBig = ({
+  product,
+  ...props
+}: { product: Product } & HTMLAttributes<HTMLDivElement>) => {
+  const finalPrice = product.discount_percentage
+    ? (product.price * (1 - product.discount_percentage / 100)).toFixed(2)
+    : product.price.toFixed(2);
+  return (
+    <a
+      className={cn(
+        "relative flex flex-col justify-center items-center p-2 h-60 w-[24.5rem] md:w-[16.5rem] md:h-[16.5rem] lg:w-[20.5rem] lg:h-[20.5rem]  bg-white border border-gray-200 cursor-pointer",
+        props.className
+      )}
+    >
+      <img
+        src={product.image}
+        alt={product.name}
+        className=" h-[90%] object-cover pb-1"
+      />
+      <div className="absolute right-0 bottom-5 bg-gray-200 text-end px-2 py-1">
+        <p className="text-sm uppercase line-clamp-1">{product.name}</p>
+        <p className="text-sm uppercase">
+          A PARTIR DE{" "}
+          <span className="font-semibold text-orange-500">{finalPrice} €</span>
+        </p>
+      </div>
+    </a>
+  );
+};
+
+export default ProductItem;
