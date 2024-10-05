@@ -5,7 +5,7 @@ import Filters from "@/components/Filters";
 import Navbar from "@/components/Navbar";
 import ProductList from "@/components/ProductList";
 import { useEffect, useState } from "react";
-import { PRODUCTS } from "../page";
+import { PRODUCTS } from "@/app/page";
 
 export default function CategoryIndex() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);

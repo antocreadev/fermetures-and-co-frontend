@@ -104,10 +104,9 @@ export const PRODUCTS = [
 
 export default function Index() {
   return (
-    <main className="flex flex-col h-screen max-h-screen">
+    <main className="flex flex-col h-screen max-h-screen p-4">
       <Navbar />
       <CategoryNavList />
-
       <Showcase featuredProduct={PRODUCTS[0]} products={PRODUCTS.slice(0, 6)} />
       <BestSales />
     </main>

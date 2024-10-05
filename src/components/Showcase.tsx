@@ -17,7 +17,7 @@ const Showcase: React.FC<ShowcaseProps> = ({ featuredProduct, products }) => {
       {/* Container responsive */}
       <div className="flex flex-col lg:flex-row lg:space-x-6">
         {/* Produit vedette (plus grand) */}
-        <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
+        <div className="w-full lg:w-1/2 lg:h-full mb-6 lg:mb-0 flex items-center justify-center">
           <div className="border rounded-lg p-4">
             <img
               src={featuredProduct.image}
