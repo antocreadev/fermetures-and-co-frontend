@@ -20,19 +20,22 @@ export default function CategoryIndex() {
   const [minPrice, setMinPrice] = useState<number>(minPricedProduct);
   const [maxPrice, setMaxPrice] = useState<number>(maxPricedProduct);
   const [selectedHeights, setSelectedHeights] = useState<number[]>([]);
+  const [availableHeights, setAvailableHeights] = useState<number[]>([]);
 
   useEffect(() => {
     const categoryFilteredProducts = PRODUCTS.filter(
       (product) => product.category === params.slug
     );
-    console.log(categoryFilteredProducts);
+    const uniqueHeights = Array.from(
+      new Set(categoryFilteredProducts.map((product) => product.hauteur))
+    );
     setProducts(categoryFilteredProducts);
     setFilteredProducts(categoryFilteredProducts);
+    setAvailableHeights(uniqueHeights);
   }, [params.slug]);
 
   useEffect(() => {
     if (!products.length) return;
-    console.log("ok yen a assez");
 
     setMinPricedProduct(
       products.reduce((acc, product) => {
@@ -64,9 +67,7 @@ export default function CategoryIndex() {
     // Si au moins une hauteur est sélectionnée
     if (selectedHeights.length > 0) {
       filtered = filtered.filter((product) =>
-        selectedHeights.some((height) =>
-          product.name.includes(height.toString())
-        )
+        selectedHeights.includes(product.hauteur)
       );
     }
 
@@ -103,6 +104,7 @@ export default function CategoryIndex() {
                 setMaxPrice={setMaxPrice}
                 selectedHeights={selectedHeights}
                 setSelectedHeights={setSelectedHeights}
+                availableHeights={availableHeights}
               />
             )}
           </div>
@@ -118,6 +120,7 @@ export default function CategoryIndex() {
               setMaxPrice={setMaxPrice}
               selectedHeights={selectedHeights}
               setSelectedHeights={setSelectedHeights}
+              availableHeights={availableHeights}
             />
           </div>
         </section>

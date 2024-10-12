@@ -44,9 +44,9 @@ const ProductPage = () => {
           </div>
           {/* Colonne des détails produit */}
           <div className="flex-1 p-6">
-            <span className="text-sm text-gray-500 uppercase">Sale</span>
+            {/* <span className="text-sm text-gray-500 uppercase">Sale</span> */}
             <h1 className="text-4xl font-bold mt-2">{product.name}</h1>
-            <p className="text-gray-600 mt-4">{product.description ?? "N/A"}</p>
+            {/* <p className="text-gray-600 mt-4">{product.description ?? "N/A"}</p> */}
 
             {/* Informations supplémentaires sur le produit */}
             <div className="mt-6 space-y-4">

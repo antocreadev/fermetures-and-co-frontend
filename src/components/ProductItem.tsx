@@ -20,7 +20,7 @@ export const ProductItem = ({
       <img
         src={product.imageUrls[0]}
         alt={product.name}
-        className="w-40 lg:w-36 xl:w-48 object-cover pb-1"
+        className="w-40 lg:w-36 xl:w-48 object-cover pb-1 min-h-28 max-h-28"
       />
       <h2 className="text-xs md:text-[10px] uppercase text-center line-clamp-1">
         {product.name}

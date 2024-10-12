@@ -10,6 +10,7 @@ type FiltersProps = {
   setMaxPrice: (value: number) => void;
   selectedHeights: number[];
   setSelectedHeights: React.Dispatch<React.SetStateAction<number[]>>;
+  availableHeights: number[];
 };
 
 const Filters: React.FC<FiltersProps> = ({
@@ -21,6 +22,7 @@ const Filters: React.FC<FiltersProps> = ({
   setMaxPrice,
   selectedHeights,
   setSelectedHeights,
+  availableHeights,
 }) => {
   const handlePriceChange = (values: number[]) => {
     setMinPrice(values[0]);
@@ -88,42 +90,23 @@ const Filters: React.FC<FiltersProps> = ({
         </div>
       </div>
 
-      {/* Exemple d'autres filtres */}
+      {/* Filtre par hauteur */}
       <div>
         <h3 className="font-semibold">Hauteur (cm)</h3>
         <ul className="space-y-1 mt-2">
-          <li className="space-x-2">
-            <input
-              type="checkbox"
-              className="accent-orange-500"
-              id="140"
-              onChange={handleHeightChange}
-            />
-            <label htmlFor="140">140</label>
-          </li>
-          <li className="space-x-2">
-            <input
-              type="checkbox"
-              id="160"
-              className="accent-orange-500"
-              onChange={handleHeightChange}
-            />
-            <label htmlFor="160">160</label>
-          </li>
-          <li className="space-x-2">
-            <input
-              type="checkbox"
-              id="180"
-              className="accent-orange-500"
-              onChange={handleHeightChange}
-            />
-            <label htmlFor="180">180</label>
-          </li>
-          {/* Ajoute d'autres options de hauteurs si nécessaire */}
+          {availableHeights.map((height) => (
+            <li key={height} className="space-x-2">
+              <input
+                type="checkbox"
+                className="accent-orange-500"
+                id={height.toString()}
+                onChange={handleHeightChange}
+              />
+              <label htmlFor={height.toString()}>{height}</label>
+            </li>
+          ))}
         </ul>
       </div>
-
-      {/* D'autres filtres à ajouter... */}
     </div>
   );
 };
