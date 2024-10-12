@@ -7,9 +7,7 @@ import GlobalSearchInput from "./GlobalSearchInput";
 const MenuDrawer = ({ isOpen, onClose }) => {
   return (
     <div
-      className={`fixed inset-0 z-50 flex justify-start ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      }`}
+      className={`fixed inset-0 z-50 flex justify-start ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
     >
       {/* Overlay pour fermer le drawer quand on clique en dehors */}
       <div className="fixed inset-0 bg-black bg-opacity-50" onClick={onClose} />
