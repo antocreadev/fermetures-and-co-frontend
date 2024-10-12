@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className=" border-t border-gray-700 mt-8 pt py-8">
+      <div className="-4 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* BESOIN D'AIDE */}
         <div>
           <h3 className="text-lg font-semibold mb-4">BESOIN D'AIDE</h3>
@@ -23,10 +23,11 @@ export const Footer = () => {
             </li>
           </ul>
         </div>
-
         {/* À PROPOS DE CASANOOV */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">À PROPOS DE CASANOOV</h3>
+          <h3 className="text-lg font-semibold mb-4">
+            À PROPOS DE FERMETURES & CO
+          </h3>
           <ul className="space-y-2">
             <li>
               <a href="#" className="hover:underline">
@@ -38,15 +39,8 @@ export const Footer = () => {
                 Nos engagements
               </a>
             </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Casanoov Pro
-              </a>
-            </li>
           </ul>
         </div>
-
-        {/* INTERNATIONAL */}
         <div>
           <h3 className="text-lg font-semibold mb-4">INTERNATIONAL</h3>
           <p className="text-sm leading-relaxed">
@@ -58,11 +52,10 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-400">
-        <p>Cliquez-ici pour modifier vos préférences en matière de cookies</p>
+      <div className="mt-8 pt-4 text-center text-sm ">
         <p className="mt-2">
-          © 2019 - Casanoov / CGV / Politique de confidentialité / Mentions
-          légales
+          © 2024 - Fermetures & co / CGV / Politique de confidentialité /
+          Mentions légales
         </p>
       </div>
     </footer>

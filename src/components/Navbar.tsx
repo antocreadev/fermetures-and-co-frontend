@@ -30,12 +30,17 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ isOpen, onClose }) => {
         </button>
 
         {/* Contenu du menu */}
-        <h2 className="text-2xl font-bold mb-4">Menu</h2>
+        <h2 className="text-2xl font-bold mb-4">Catégories</h2>
         <ul className="flex flex-col space-y-4">
-          <li className="text-gray-700 hover:text-gray-900">Accueil</li>
-          <li className="text-gray-700 hover:text-gray-900">Produits</li>
-          <li className="text-gray-700 hover:text-gray-900">Contact</li>
-          <li className="text-gray-700 hover:text-gray-900">À propos</li>
+          <li className="text-gray-700 hover:text-gray-900">
+            <a href="/category/portails">Portails</a>
+          </li>
+          <li className="text-gray-700 hover:text-gray-900">
+            <a href="/category/pergolas">Pergolas</a>
+          </li>
+          <li className="text-gray-700 hover:text-gray-900">
+            <a href="/category/portillons">Portillons</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -179,7 +184,7 @@ const Navbar = () => {
           <div className="flex flex-row gap-2 items-center">
             <button
               onClick={toggleMenuDrawer}
-              className="p-1 rounded-sm hover:bg-gray-100"
+              className="p-1 rounded-sm hover:bg-gray-100 md:hidden"
             >
               <MenuIcon size={28} strokeWidth={1} />
             </button>
