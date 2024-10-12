@@ -17,14 +17,18 @@ export const ProductItem = ({
         props.className
       )}
     >
-      <img
-        src={product.imageUrls[0]}
-        alt={product.name}
-        className="w-40 lg:w-36 xl:w-48 object-cover pb-1 min-h-28 max-h-28"
-      />
-      <h2 className="text-xs md:text-[10px] uppercase text-center line-clamp-1">
-        {product.name}
-      </h2>
+      <a href={`/product/${product.id}`}>
+        <img
+          src={product.imageUrls[0]}
+          alt={product.name}
+          className="w-40 lg:w-36 xl:w-48 object-cover pb-1 min-h-28 max-h-28"
+        />
+      </a>
+      <a href={`/product/${product.id}`}>
+        <h2 className="text-xs md:text-[10px] uppercase text-center line-clamp-1">
+          {product.name}
+        </h2>
+      </a>
       <div className="flex gap-2 items-center py-1 md:py-0.5">
         {/* {product.discount_percentage && (
           <p className="text-xs md:text-[8px]  text-orange-300 font-bold line-through">
