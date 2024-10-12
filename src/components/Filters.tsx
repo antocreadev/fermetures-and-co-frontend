@@ -1,9 +1,9 @@
 "use client";
-
-import React, { Dispatch, SetStateAction, useState } from "react";
 import { Range } from "react-range";
 
 type FiltersProps = {
+  MINBOUND: number;
+  MAXBOUND: number;
   minPrice: number;
   maxPrice: number;
   setMinPrice: (value: number) => void;
@@ -12,10 +12,9 @@ type FiltersProps = {
   setSelectedHeights: React.Dispatch<React.SetStateAction<number[]>>;
 };
 
-const MIN = 0;
-const MAX = 3000;
-
 const Filters: React.FC<FiltersProps> = ({
+  MINBOUND,
+  MAXBOUND,
   minPrice,
   maxPrice,
   setMinPrice,
@@ -48,8 +47,8 @@ const Filters: React.FC<FiltersProps> = ({
         <h3 className="font-semibold mb-2">Prix</h3>
         <Range
           step={10}
-          min={MIN}
-          max={MAX}
+          min={MINBOUND}
+          max={MAXBOUND}
           values={[minPrice, maxPrice]}
           onChange={handlePriceChange}
           renderTrack={({ props, children }) => (
@@ -59,11 +58,13 @@ const Filters: React.FC<FiltersProps> = ({
               style={{
                 ...props.style,
                 background: `linear-gradient(to right, #ddd ${
-                  (100 * (minPrice - MIN)) / (MAX - MIN)
-                }%, #4CAF50 ${
-                  (100 * (minPrice - MIN)) / (MAX - MIN)
-                }%, #4CAF50 ${(100 * (maxPrice - MIN)) / (MAX - MIN)}%, #ddd ${
-                  (100 * (maxPrice - MIN)) / (MAX - MIN)
+                  (100 * (minPrice - MINBOUND)) / (MAXBOUND - MINBOUND)
+                }%, #F97316 ${
+                  (100 * (minPrice - MINBOUND)) / (MAXBOUND - MINBOUND)
+                }%, #F97316 ${
+                  (100 * (maxPrice - MINBOUND)) / (MAXBOUND - MINBOUND)
+                }%, #ddd ${
+                  (100 * (maxPrice - MINBOUND)) / (MAXBOUND - MINBOUND)
                 }%)`,
               }}
             >
@@ -76,7 +77,7 @@ const Filters: React.FC<FiltersProps> = ({
               <div
                 key={key}
                 {...rest}
-                className="w-4 h-4 bg-green-500 rounded-full"
+                className="w-4 h-4 bg-orange-500 rounded-full"
               />
             );
           }}
@@ -92,15 +93,30 @@ const Filters: React.FC<FiltersProps> = ({
         <h3 className="font-semibold">Hauteur (cm)</h3>
         <ul className="space-y-1 mt-2">
           <li className="space-x-2">
-            <input type="checkbox" id="140" onChange={handleHeightChange} />
+            <input
+              type="checkbox"
+              className="accent-orange-500"
+              id="140"
+              onChange={handleHeightChange}
+            />
             <label htmlFor="140">140</label>
           </li>
           <li className="space-x-2">
-            <input type="checkbox" id="160" onChange={handleHeightChange} />
+            <input
+              type="checkbox"
+              id="160"
+              className="accent-orange-500"
+              onChange={handleHeightChange}
+            />
             <label htmlFor="160">160</label>
           </li>
           <li className="space-x-2">
-            <input type="checkbox" id="180" onChange={handleHeightChange} />
+            <input
+              type="checkbox"
+              id="180"
+              className="accent-orange-500"
+              onChange={handleHeightChange}
+            />
             <label htmlFor="180">180</label>
           </li>
           {/* Ajoute d'autres options de hauteurs si nécessaire */}

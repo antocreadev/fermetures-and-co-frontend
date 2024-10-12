@@ -1,6 +1,6 @@
 "use client";
 
-import { PRODUCTS } from "@/app/page";
+import { PRODUCTS } from "@/products";
 import React from "react";
 import ProductItem from "./ProductItem";
 import ProductSlider from "./ProductSlider";
