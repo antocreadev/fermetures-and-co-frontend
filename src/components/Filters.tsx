@@ -47,49 +47,53 @@ const Filters: React.FC<FiltersProps> = ({
       {/* Filtre par prix */}
       <div>
         <h3 className="font-semibold mb-2">Prix</h3>
-        <Range
-          step={10}
-          min={MINBOUND}
-          max={MAXBOUND}
-          values={[minPrice, maxPrice]}
-          onChange={handlePriceChange}
-          renderTrack={({ props, children }) => (
-            <div
-              {...props}
-              className="w-full h-1 bg-gray-300"
-              style={{
-                ...props.style,
-                background: `linear-gradient(to right, #ddd ${
-                  (100 * (minPrice - MINBOUND)) / (MAXBOUND - MINBOUND)
-                }%, #F97316 ${
-                  (100 * (minPrice - MINBOUND)) / (MAXBOUND - MINBOUND)
-                }%, #F97316 ${
-                  (100 * (maxPrice - MINBOUND)) / (MAXBOUND - MINBOUND)
-                }%, #ddd ${
-                  (100 * (maxPrice - MINBOUND)) / (MAXBOUND - MINBOUND)
-                }%)`,
-              }}
-            >
-              {children}
-            </div>
-          )}
-          renderThumb={({ props }) => {
-            const { key, ...rest } = props;
-            return (
+        <div className="w-[70%]">
+          <Range
+            step={10}
+            min={MINBOUND}
+            max={MAXBOUND}
+            values={[minPrice, maxPrice]}
+            onChange={handlePriceChange}
+            renderTrack={({ props, children }) => (
               <div
-                key={key}
-                {...rest}
-                className="w-4 h-4 bg-orange-500 rounded-full"
-              />
-            );
-          }}
-        />
-        <div className="flex justify-between mt-2">
-          <span>{minPrice} €</span>
-          <span>{maxPrice} €</span>
+                {...props}
+                className="w-full h-1 bg-neutral-300"
+                style={{
+                  ...props.style,
+                  background: `linear-gradient(to right, #ddd ${
+                    (100 * (minPrice - MINBOUND)) / (MAXBOUND - MINBOUND)
+                  }%, #737373 ${
+                    (100 * (minPrice - MINBOUND)) / (MAXBOUND - MINBOUND)
+                  }%, #737373 ${
+                    (100 * (maxPrice - MINBOUND)) / (MAXBOUND - MINBOUND)
+                  }%, #ddd ${
+                    (100 * (maxPrice - MINBOUND)) / (MAXBOUND - MINBOUND)
+                  }%)`,
+                }}
+              >
+                {children}
+              </div>
+            )}
+            renderThumb={({ props }) => {
+              const { key, ...rest } = props;
+              return (
+                <div
+                  key={key}
+                  {...rest}
+                  className="w-4 h-4 bg-neutral-500 rounded-full"
+                />
+              );
+            }}
+          />
+          <div className="flex  w-full justify-between mt-2">
+            <span>{minPrice} €</span>
+            <span>{maxPrice} €</span>
+          </div>
         </div>
       </div>
 
+      {/* Separator */}
+      <hr className="my-4 border-neutral-300" />
       {/* Filtre par hauteur */}
       <div>
         <h3 className="font-semibold">Hauteur (cm)</h3>
@@ -98,7 +102,7 @@ const Filters: React.FC<FiltersProps> = ({
             <li key={height} className="space-x-2">
               <input
                 type="checkbox"
-                className="accent-orange-500"
+                className="accent-neutral-500"
                 id={height.toString()}
                 onChange={handleHeightChange}
               />

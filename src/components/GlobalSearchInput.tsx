@@ -17,38 +17,38 @@ const GlobalSearchInput = () => {
   };
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full pt-2 md:p-0">
       <input
         type="search"
         id="global-search"
         name="global-search"
-        placeholder="Search..."
+        placeholder="Rehercher un portail, un portillon, une pergola..."
         value={searchQuery}
         onChange={handleSearchChange}
         className="
           text-sm
           p-2
-          bg-gray-50
+          bg-neutral-50
           border
-          border-gray-500
+          border-neutral-500
           focus:outline-none
-          focus:ring-gray-400
+          focus:ring-neutral-400
           rounded-sm
           w-full
         "
       />
       {searchQuery && (
-        <ul className="absolute top-full left-0 right-0 bg-white border border-gray-300 z-10 max-h-60 overflow-y-auto w-full">
+        <ul className="absolute top-full left-0 right-0 bg-white border border-neutral-300 z-10 max-h-60 overflow-y-auto w-full">
           {filteredResults.map((product) => (
             <a href={`/product/${product.id}`} key={product.id}>
-              <li className="p-2 hover:bg-gray-100 flex gap-6">
+              <li className="p-2 hover:bg-neutral-100 flex gap-6">
                 <img className="w-16" src={product.imageUrls[0]} alt="" />
                 {product.name}
               </li>
             </a>
           ))}
           {filteredResults.length === 0 && (
-            <li className="p-2 text-gray-500">Aucun résultat</li>
+            <li className="p-2 text-neutral-500">Aucun résultat</li>
           )}
         </ul>
       )}

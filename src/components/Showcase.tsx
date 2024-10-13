@@ -8,7 +8,7 @@ type ShowcaseProps = {
 
 const Showcase: React.FC<ShowcaseProps> = ({ featuredProduct, products }) => {
   return (
-    <section className="flex flex-col justify-center p-5 bg-gray-100">
+    <section className="flex flex-col justify-center p-5 bg-neutral-100">
       <h1 className="header text-center mb-4">
         FERMETURES & CO : LE SPÉCIALISTE DES PORTAILS ET PERGOLAS EN CORSE
       </h1>

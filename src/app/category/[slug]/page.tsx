@@ -83,15 +83,19 @@ export default function CategoryIndex() {
       <div className="flex flex-col lg:flex-row px-4 lg:px-8 py-4 lg:space-x-8 ">
         {/* Partie Filtre */}
         <section className="lg:w-1/4 mb-4">
-          <h2 className="font-semibold text-lg hidden lg:block">Filtres</h2>
+          <h2 className="font-semibold text-lg hidden lg:block bg-neutral-200 uppercase p-2 mb-4 h-12 flex justify-end items-center">
+            Filtres
+          </h2>
 
           <div className="lg:hidden">
             {/* Titre et toggle pour mobile */}
             <button
               onClick={() => setIsFilterOpen(!isFilterOpen)}
-              className="flex justify-between items-center w-full py-2 border-b"
+              className="flex justify-between items-center w-full p-2 border-b bg-neutral-200 "
             >
-              <h2 className="font-semibold text-lg">Filtres</h2>
+              <h2 className="font-semibold text-lg uppercase h-12 flex justify-end items-center">
+                Filtres
+              </h2>
               <span>{isFilterOpen ? "▲" : "▼"}</span>
             </button>
             {isFilterOpen && (
@@ -110,7 +114,7 @@ export default function CategoryIndex() {
           </div>
 
           {/* Affiché directement sur desktop */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:block ">
             <Filters
               MINBOUND={minPricedProduct}
               MAXBOUND={maxPricedProduct}
@@ -126,7 +130,14 @@ export default function CategoryIndex() {
         </section>
 
         {/* Liste des produits */}
-        <section className="lg:w-3/4">
+        <section>
+          <h1 className="bg-neutral-200 p-2 font-bold uppercase mb-4 h-12 flex items-center">
+            Tout les{" "}
+            {params.slug
+              .split("-")
+              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(" ")}{" "}
+          </h1>
           <ProductList products={filteredProducts} />
         </section>
       </div>

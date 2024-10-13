@@ -24,7 +24,7 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ isOpen, onClose }) => {
       <div className="relative w-80 max-w-full bg-white h-full shadow-lg p-6">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-600 hover:text-gray-900"
+          className="absolute top-4 right-4 text-neutral-600 hover:text-neutral-900"
         >
           <XIcon size={24} />
         </button>
@@ -32,13 +32,13 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ isOpen, onClose }) => {
         {/* Contenu du menu */}
         <h2 className="text-2xl font-bold mb-4">Catégories</h2>
         <ul className="flex flex-col space-y-4">
-          <li className="text-gray-700 hover:text-gray-900">
+          <li className="text-neutral-700 hover:text-neutral-900">
             <a href="/category/portails">Portails</a>
           </li>
-          <li className="text-gray-700 hover:text-gray-900">
+          <li className="text-neutral-700 hover:text-neutral-900">
             <a href="/category/pergolas">Pergolas</a>
           </li>
-          <li className="text-gray-700 hover:text-gray-900">
+          <li className="text-neutral-700 hover:text-neutral-900">
             <a href="/category/portillons">Portillons</a>
           </li>
         </ul>
@@ -110,7 +110,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
       <div className="relative w-96 max-w-full bg-white h-full shadow-lg p-6 flex flex-col">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-600 hover:text-gray-900"
+          className="absolute top-4 right-4 text-neutral-600 hover:text-neutral-900"
         >
           <XIcon size={24} />
         </button>
@@ -133,7 +133,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                 )}
                 <div className="flex flex-col flex-1 ml-4">
                   <p className="font-bold">{item.name}</p>
-                  <p className="text-gray-500">{item.price} €</p>
+                  <p className="text-neutral-500">{item.price} €</p>
                   <p className="font-bold">Quantité : {quantity}</p>
                   <p className="font-bold">Total : {item.price * quantity} €</p>
                 </div>
@@ -146,7 +146,9 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
               </div>
             ))
           ) : (
-            <p className="text-gray-500">Votre panier est actuellement vide.</p>
+            <p className="text-neutral-500">
+              Votre panier est actuellement vide.
+            </p>
           )}
         </div>
 
@@ -161,7 +163,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
             €
           </p>
         </div>
-        <button className="mt-6 w-full bg-orange-500 text-white rounded-lg py-2">
+        <button className="mt-6 w-full bg-neutral-500 text-white rounded-lg py-2">
           Passer à la caisse
         </button>
       </div>
@@ -180,18 +182,18 @@ const Navbar = () => {
   return (
     <>
       <nav className="flex flex-col px-5 py-3">
-        <div className="flex justify-between items-center py-2">
+        <div className="flex justify-between items-center pt-2">
           <div className="flex flex-row gap-2 items-center">
             <button
               onClick={toggleMenuDrawer}
-              className="p-1 rounded-sm hover:bg-gray-100 md:hidden"
+              className="p-1 rounded-sm hover:bg-neutral-100 md:hidden"
             >
               <MenuIcon size={28} strokeWidth={1} />
             </button>
 
             <a href="/">
               <img
-                src="/img/logo.jpg"
+                src="/img/logo.png"
                 alt=""
                 className="w-36 mix-blend-multiply"
               />
@@ -205,11 +207,11 @@ const Navbar = () => {
           <div className="flex flex-row gap-4 items-center">
             <button
               onClick={toggleCartDrawer}
-              className="p-1 rounded-full hover:bg-gray-100"
+              className="p-1 rounded-full hover:bg-neutral-100"
             >
               <ShoppingBagIcon size={24} strokeWidth={1} />
             </button>
-            <button className="p-1 rounded-full hover:bg-gray-100">
+            <button className="p-1 rounded-full hover:bg-neutral-100">
               <UserCircleIcon size={24} strokeWidth={1} />
             </button>
           </div>
