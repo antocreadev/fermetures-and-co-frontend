@@ -12,7 +12,7 @@ export const ProductItem = ({
     <div
       //w-48 h-48 md:w-32 md:h-32 lg:w-40 lg:h-40
       className={cn(
-        "flex flex-col items-center p-2 bg-white border border-gray-200 cursor-pointer",
+        "flex flex-col items-center p-2 bg-white border border-gray-200 cursor-pointer mr-2",
         props.className
       )}
     >

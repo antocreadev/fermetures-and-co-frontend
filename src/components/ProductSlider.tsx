@@ -9,8 +9,8 @@ const ProductSlider = () => {
     <Slider
       {...{
         dots: true,
-        slidesToShow: 4,
-        slidesToScroll: 3,
+        slidesToShow: window.innerWidth >= 1000 ? 4 : 2,
+        slidesToScroll: window.innerWidth >= 1000 ? 3 : 2,
       }}
     >
       {PRODUCTS.map((product) => (
