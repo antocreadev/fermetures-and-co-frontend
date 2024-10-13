@@ -52,21 +52,72 @@ const ProductPage = () => {
             <div className="mt-6 space-y-4">
               <details>
                 <summary className="cursor-pointer text-lg font-semibold">
-                  Product Information
+                  Description technique
                 </summary>
                 <div className="mt-2 text-gray-500">
-                  Detailed product specifications, materials, and technical
-                  details here.
+                  {product.category === "pergolas" ? (
+                    <div>
+                      <ul className="list-disc list-inside space-y-2">
+                        <li className="text-gray-700">Adossée ou en îlot</li>
+                        <li className="text-gray-700">
+                          Poteaux 125 mm x 125 mm
+                        </li>
+                        <li className="text-gray-700">
+                          Option stores verticaux
+                        </li>
+                        <li className="text-gray-700">Option éclairage LED</li>
+                        <li className="text-gray-700">Lames simple paroi</li>
+                        <li className="text-gray-700">
+                          Structure sans vis apparente
+                        </li>
+                        <li className="text-gray-700">Largeur max = 5954 mm</li>
+                        <li className="text-gray-700">Avancée max = 4000 mm</li>
+                        <li className="text-gray-700">Hauteur = 2650 mm</li>
+                        <li className="text-gray-700">
+                          Motorisation Somfy ou Nice
+                        </li>
+                        <li className="text-gray-700">Aluminium de qualité</li>
+                      </ul>
+                    </div>
+                  ) : (
+                    <div>
+                      <ul className="list-disc list-inside space-y-2">
+                        <li className="text-gray-700">Aluminium de qualité</li>
+                        <li className="text-gray-700">
+                          Assemblage mécanique sans soudure
+                        </li>
+                        <li className="text-gray-700">
+                          Traverse 160 mm pour une grande robustesse
+                        </li>
+                        <li className="text-gray-700">
+                          Renfort sur toute la largeur du portail
+                        </li>
+                        <li className="text-gray-700">Visserie en inox</li>
+                        <li className="text-gray-700">
+                          Joints entre certains profils pour éviter les
+                          vibrations et les effets sonores désagréables
+                        </li>
+                        <li className="text-gray-700">
+                          Laquage certifié Qualicoat et Qualimarine
+                        </li>
+                        <li className="text-gray-700">Motorisable</li>
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </details>
 
               <details>
                 <summary className="cursor-pointer text-lg font-semibold">
-                  Shipping & Returns
+                  Livraison & Retours
                 </summary>
                 <div className="mt-2 text-gray-500">
-                  Information about shipping, estimated delivery, and return
-                  policies here.
+                  Nous offrons la livraison gratuite pour toutes les commandes
+                  supérieures à 50 €. Les commandes sont généralement expédiées
+                  dans un délai de 2 à 3 jours ouvrables. Vous pouvez retourner
+                  les articles non utilisés dans les 30 jours suivant la
+                  réception pour un remboursement complet. Veuillez noter que
+                  les frais de retour sont à la charge du client.
                 </div>
               </details>
             </div>
