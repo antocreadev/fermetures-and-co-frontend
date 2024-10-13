@@ -132,7 +132,7 @@ export default function CategoryIndex() {
         {/* Liste des produits */}
         <section>
           <h1 className="bg-neutral-200 p-2 font-bold uppercase mb-4 h-12 flex items-center">
-            Tout les{" "}
+            Tous les{" "}
             {params.slug
               .split("-")
               .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
