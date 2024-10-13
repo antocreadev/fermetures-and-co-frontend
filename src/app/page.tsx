@@ -7,7 +7,7 @@ import { PRODUCTS } from "@/products";
 
 export default function Index() {
   return (
-    <main className="flex flex-col h-screen max-h-screen p-4">
+    <main className="flex flex-col h-screen max-h-screen">
       <Navbar />
       <CategoryNavList />
       <Showcase featuredProduct={PRODUCTS[0]} products={PRODUCTS.slice(0, 6)} />
