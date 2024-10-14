@@ -43,7 +43,7 @@ const ProductPage = () => {
             </Carousel>
           </div>
           {/* Colonne des détails produit */}
-          <div className="w-1/3 h-96 p-6 bg-neutral-200 flex flex-col justify-between">
+          <div className="w-1/3 h-[30rem] p-6 bg-neutral-200 flex flex-col justify-between">
             <div>
               <h1 className="text-4xl font-bold mt-2">{product.name}</h1>
 
@@ -57,7 +57,7 @@ const ProductPage = () => {
             </div>
 
             {product.category === "pergolas" ? (
-              <ul className="list-disc list-inside space-y-2 grid grid-cols-2">
+              <ul className="list-disc list-inside space-y-2">
                 <li className="text-neutral-700">Adossée ou en îlot</li>
                 <li className="text-neutral-700">Poteaux 125 mm x 125 mm</li>
                 <li className="text-neutral-700">Option stores verticaux</li>
