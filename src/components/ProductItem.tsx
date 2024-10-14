@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Product } from "@/types/Product";
 
@@ -5,12 +7,14 @@ export const ProductItem = ({
   product,
   ...props
 }: { product: Product } & React.LinkHTMLAttributes<HTMLAnchorElement>) => {
-  // const finalPrice = product.discount_percentage
-  //   ? (product.price * (1 - product.discount_percentage / 100)).toFixed(2)
-  //   : product.price.toFixed(2);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true); // Cela indique que le composant est monté côté client
+  }, []);
+
   return (
     <div
-      //w-48 h-48 md:w-32 md:h-32 lg:w-40 lg:h-40
       className={cn(
         "flex flex-col items-center p-2 bg-white border border-neutral-200 cursor-pointer mr-1 ml-1",
         props.className
@@ -18,16 +22,13 @@ export const ProductItem = ({
     >
       <a href={`/product/${product.id}`} className="w-full">
         <div
-          className="w-full h-[150px] bg-cover bg-center"
+          className={`w-full h-[150px] bg-cover bg-center`}
           style={{
-            backgroundImage: `url(${product.imageUrls[0]})`,
+            backgroundImage: isMounted
+              ? `url(${product.imageUrls[0]})`
+              : "none",
           }}
         ></div>
-        {/* <img
-          src={product.imageUrls[0]}
-          alt={product.name}
-          className="w-full object-cover pb-1 min-h-28 max-h-28"
-        /> */}
       </a>
       <a href={`/product/${product.id}`}>
         <h2 className="text-sm md:text-[15px] uppercase text-center line-clamp-1">
@@ -35,11 +36,6 @@ export const ProductItem = ({
         </h2>
       </a>
       <div className="flex gap-2 items-center py-1 md:py-0.5">
-        {/* {product.discount_percentage && (
-          <p className="text-xs md:text-[8px]  text-neutral-300 font-bold line-through">
-            {product.price} €
-          </p>
-        )} */}
         <p className="md:text-xs font-bold text-neutral-500">
           {product.price.toFixed(2)} €
         </p>
@@ -52,9 +48,12 @@ export const ProductItemBig = ({
   product,
   ...props
 }: { product: Product } & React.LinkHTMLAttributes<HTMLAnchorElement>) => {
-  // const finalPrice = product.discount_percentage
-  //   ? (product.price * (1 - product.discount_percentage / 100)).toFixed(2)
-  //   : product.price.toFixed(2);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <a
       href={props.href}
@@ -63,11 +62,13 @@ export const ProductItemBig = ({
         props.className
       )}
     >
-      <img
-        src={product.imageUrls[0]}
-        alt={product.name}
-        className=" h-[90%] object-cover pb-1"
-      />
+      {isMounted && (
+        <img
+          src={product.imageUrls[0]}
+          alt={product.name}
+          className="h-[90%] object-cover pb-1"
+        />
+      )}
       <div className="absolute right-0 bottom-5 bg-neutral-200 text-end px-2 py-1">
         <p className="text-sm uppercase line-clamp-1">{product.name}</p>
         <p className="text-sm uppercase">

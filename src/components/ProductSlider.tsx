@@ -8,6 +8,7 @@ const ProductSlider = () => {
   return (
     <Slider
       {...{
+        className: "ml-10 mr-10",
         dots: true,
         slidesToShow:
           typeof window !== "undefined" && window.innerWidth >= 1000 ? 4 : 2,
