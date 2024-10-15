@@ -8,7 +8,7 @@ import { Star } from "lucide-react";
 export default function Reviews() {
   return (
     <div className="p-2 mb-6 w-full flex flex-col md:flex-row justify-around">
-      <div className="flex items-center justify-center flex-col text-neutral-700">
+      <div className="flex items-center justify-center gap-1 flex-col text-neutral-700">
         <p className="text-xl font-semibold">
           <span className="text-2xl">4.8</span>/5
         </p>
