@@ -9,7 +9,7 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
   return products.length > 0 ? (
     <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-3">
       {products.map((product) => (
-        <ProductItem key={product.id} product={product} />
+        <ProductItem key={product.id} product={product} slider={false} />
       ))}
     </div>
   ) : (
