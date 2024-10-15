@@ -8,6 +8,9 @@ import { useEffect, useState } from "react";
 import { PRODUCTS } from "@/products";
 import { useParams } from "next/navigation";
 import { Product } from "@/types/Product";
+import PaymentMethods from "@/components/PaymentMethods";
+import TextHomepage from "@/components/TextHomepage";
+import Footer from "@/components/Footer";
 
 export default function CategoryIndex() {
   const params = useParams<{ slug: string }>();
@@ -141,6 +144,9 @@ export default function CategoryIndex() {
           <ProductList products={filteredProducts} />
         </section>
       </div>
+      <PaymentMethods />
+      <TextHomepage />
+      <Footer />
     </main>
   );
 }

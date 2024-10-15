@@ -1,10 +1,12 @@
 export const Footer = () => {
   return (
-    <footer className=" border-t border-neutral-700 mt-8 pt py-8">
+    <footer className=" pt py-8">
       <div className="-4 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* BESOIN D'AIDE */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">BESOIN D'AIDE</h3>
+          <h3 className="text-lg font-semibold mb-4 uppercase">
+            BESOIN D&apos;AIDE
+          </h3>
           <ul className="space-y-2">
             <li>
               <a href="#" className="hover:underline">
@@ -25,7 +27,7 @@ export const Footer = () => {
         </div>
         {/* À PROPOS DE CASANOOV */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">
+          <h3 className="text-lg font-semibold mb-4 uppercase">
             À PROPOS DE FERMETURES & CO
           </h3>
           <ul className="space-y-2">
@@ -42,7 +44,9 @@ export const Footer = () => {
           </ul>
         </div>
         <div>
-          <h3 className="text-lg font-semibold mb-4">INTERNATIONAL</h3>
+          <h3 className="text-lg font-semibold mb-4 uppercase">
+            INTERNATIONAL
+          </h3>
           <p className="text-sm leading-relaxed">
             France, Allemagne, Royaume-Uni, Italie, Espagne, Belgique, Pologne,
             Pays-Bas, Autriche, Luxembourg, Portugal, Irlande, Danemark,

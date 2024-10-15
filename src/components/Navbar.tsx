@@ -30,16 +30,26 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ isOpen, onClose }) => {
         </button>
 
         {/* Contenu du menu */}
-        <h2 className="text-2xl font-bold mb-4">Catégories</h2>
+        <h2 className="text-2xl font-bold mb-4 uppercase">Catégories</h2>
+        {/* portail coulissant, portail battant, portillon, accessoire portail, motorisation portail, pergolas */}
         <ul className="flex flex-col space-y-4">
-          <li className="text-neutral-700 hover:text-neutral-900">
-            <a href="/category/portails">Portails</a>
+          <li className="text-neutral-700 hover:text-neutral-900 uppercase text-xl font-semibold border-b-2 pb-2">
+            <a href="/category/portail-coulissant">Portail coulissant</a>
           </li>
-          <li className="text-neutral-700 hover:text-neutral-900">
-            <a href="/category/pergolas">Pergolas</a>
+          <li className="text-neutral-700 hover:text-neutral-900 uppercase text-xl font-semibold border-b-2 pb-2">
+            <a href="/category/portail-battant">Portail battant</a>
           </li>
-          <li className="text-neutral-700 hover:text-neutral-900">
-            <a href="/category/portillons">Portillons</a>
+          <li className="text-neutral-700 hover:text-neutral-900 uppercase text-xl font-semibold border-b-2 pb-2">
+            <a href="/category/portillon">Portillon</a>
+          </li>
+          <li className="text-neutral-700 hover:text-neutral-900 uppercase text-xl font-semibold border-b-2 pb-2">
+            <a href="/category/accessoire-portail">Accessoire portail</a>
+          </li>
+          <li className="text-neutral-700 hover:text-neutral-900 uppercase text-xl font-semibold border-b-2 pb-2">
+            <a href="/category/motorisation-portail">Motorisation portail</a>
+          </li>
+          <li className="text-neutral-700 hover:text-neutral-900 uppercase text-xl font-semibold border-b-2 pb-2">
+            <a href="/category/pergola">Pergola</a>
           </li>
         </ul>
       </div>
@@ -116,7 +126,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
         </button>
 
         {/* Contenu du panier */}
-        <h2 className="text-2xl font-bold mb-4">Votre Panier</h2>
+        <h2 className="text-2xl font-bold mb-4 uppercase">Votre Panier</h2>
         <div className="flex flex-col space-y-4 overflow-scroll">
           {cartItems.length > 0 ? (
             cartItems.map(({ item, quantity }) => (
@@ -154,7 +164,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
 
         {/* Bouton pour passer à la caisse */}
         <div className="mt-4 flex justify-between items-center">
-          <p className="text-lg font-bold">Total :</p>
+          <p className="text-lg font-bold uppercase">Total :</p>
           <p className="text-lg font-bold">
             {cartItems.reduce(
               (total, { item, quantity }) => total + item.price * quantity,
@@ -181,7 +191,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex flex-col px-5 py-3">
+      <nav className="flex flex-col px-5 pt-3 pb-5">
         <div className="flex justify-between items-center pt-2">
           <div className="flex flex-row gap-2 items-center">
             <button

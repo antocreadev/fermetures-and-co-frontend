@@ -18,6 +18,7 @@ const ProductSlider = () => {
     >
       {PRODUCTS.map((product) => (
         <ProductItem
+          slider={true}
           key={product.id}
           product={product}
           href={`/product/${product.id}`}

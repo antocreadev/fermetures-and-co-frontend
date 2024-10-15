@@ -18,7 +18,7 @@ const PaymentMethods = () => {
   ];
 
   return (
-    <div className="bg-neutral-300 py-10">
+    <div className="bg-neutral-300 py-6">
       <h2 className=" text-center text-xl font-semibold mb-8">
         Paiement sécurisé
       </h2>

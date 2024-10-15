@@ -7,7 +7,7 @@ interface CategoryNavItemProps {
 
 const CategoryNavItem = ({ category }: CategoryNavItemProps) => {
   return (
-    <li className="flex justify-center items-center pt-4 p-3 w-36 text-center text-wrap transition-all border-b-2 border-transparent hover:font-bold hover:border-b-2 hover:border-y-neutral-400">
+    <li className="flex justify-center items-center pt-4 p-3 w-40 text-center text-wrap transition-all border-b-2 border-transparent hover:font-bold hover:border-b-2 hover:border-y-neutral-400">
       <a
         href={`
         /category/${category.slug}
@@ -18,18 +18,33 @@ const CategoryNavItem = ({ category }: CategoryNavItemProps) => {
     </li>
   );
 };
-
+// portails coulissant, portail battant, portillon, accessoire portail, motorisation portail, pergolas
 const CategoryNavList = () => {
   return (
     <nav className="border-t md:border-b border-neutral-400 p-2 bg-transparent md:bg-neutral-500 text-neutral-50 font-semibold">
       <ul className="hidden md:flex flex-row justify-center">
-        <CategoryNavItem category={{ slug: "portails", name: "Portails" }} />
-        <div className="h-7 my-auto border-r border-neutral-100" />
         <CategoryNavItem
-          category={{ slug: "portillons", name: "Portillons" }}
+          category={{ slug: "portail-coulissant", name: "Portail coulissant" }}
         />
         <div className="h-7 my-auto border-r border-neutral-100" />
-        <CategoryNavItem category={{ slug: "pergolas", name: "Pergolas" }} />
+        <CategoryNavItem
+          category={{ slug: "portail-battant", name: "portail battant" }}
+        />
+        <div className="h-7 my-auto border-r border-neutral-100" />
+        <CategoryNavItem category={{ slug: "portillon", name: "portillon" }} />
+        <div className="h-7 my-auto border-r border-neutral-100" />
+        <CategoryNavItem
+          category={{ slug: "accessoire-portail", name: "accessoire portail" }}
+        />
+        <div className="h-7 my-auto border-r border-neutral-100" />
+        <CategoryNavItem
+          category={{
+            slug: "motorisation-portail",
+            name: "motorisation portail",
+          }}
+        />
+        <div className="h-7 my-auto border-r border-neutral-100" />
+        <CategoryNavItem category={{ slug: "pergola", name: "pergola" }} />
       </ul>
     </nav>
   );

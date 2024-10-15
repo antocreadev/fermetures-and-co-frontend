@@ -9,7 +9,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_portails_CEBEL/ARIC00_B_L2.jpg",
       "/img/Images_portails_CEBEL/ARIC00_B_L6.png",
     ],
-    category: "portails",
+    category: "portail-battant",
     hauteur: 140,
   },
   {
@@ -20,7 +20,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_portails_CEBEL/ARIC00_B_P2.jpg",
       "/img/Images_portails_CEBEL/ARIC00_B_P3.jpg",
     ],
-    category: "portails",
+    category: "portail-battant",
     hauteur: 140,
   },
   {
@@ -31,7 +31,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_portails_CEBEL/ATAC31_B_P1TL.jpg",
       "/img/Images_portails_CEBEL/ATAC31_B_P1TV.jpg",
     ],
-    category: "portails",
+    category: "portail-battant",
     hauteur: 120,
   },
   {
@@ -42,7 +42,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_portails_CEBEL/DIANE_B_BFTO.jpg",
       "/img/Images_portails_CEBEL/EMILE_B_BBTO+.jpg",
     ],
-    category: "portails",
+    category: "portail-coulissant",
     hauteur: 140,
   },
   {
@@ -53,7 +53,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_portails_CEBEL/MALO00_B_H5.jpg",
       "/img/Images_portails_CEBEL/MALO00_B_S3.jpg",
     ],
-    category: "portails",
+    category: "portail-coulissant",
     hauteur: 160,
   },
   {
@@ -64,7 +64,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_portails_CEBEL/ATAC13_C1_P2TA.png",
       "/img/Images_portails_CEBEL/GANY21_B_P1.jpg",
     ],
-    category: "portillons",
+    category: "portillon",
     hauteur: 140,
   },
   {
@@ -75,7 +75,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_portails_CEBEL/CARE02_B_P2DA.jpg",
       "/img/Images_portails_CEBEL/EDMOND_B_BBTO.jpg",
     ],
-    category: "portillons",
+    category: "portillon",
     hauteur: 140,
   },
   {
@@ -86,7 +86,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_portails_CEBEL/MALO31_B_S2LE.jpg",
       "/img/Images_portails_CEBEL/SHA50_B_P2SI.jpg",
     ],
-    category: "portillons",
+    category: "portillon",
     hauteur: 120,
   },
   {
@@ -97,7 +97,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_portails_CEBEL/ORIO03_C1_S3DA.jpg",
       "/img/Images_portails_CEBEL/RAFFLESIA_B_MG9007+MG9010.jpg",
     ],
-    category: "portillons",
+    category: "portillon",
     hauteur: 140,
   },
   {
@@ -108,7 +108,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_portails_CEBEL/SAHA50_C1_P1TP.jpg",
       "/img/Images_portails_CEBEL/SHA51_C1_P1LE.jpg",
     ],
-    category: "portillons",
+    category: "portillon",
     hauteur: 150,
   },
   {
@@ -119,7 +119,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_pergolas_CEBEL/221114_CEBEL_PERGOLA_PHOTOS_15.jpg",
       "/img/Images_pergolas_CEBEL/221114_CEBEL_PERGOLA_PHOTOS_18.jpg",
     ],
-    category: "pergolas",
+    category: "pergola",
     hauteur: 2650,
   },
   {
@@ -130,7 +130,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_pergolas_CEBEL/221114_CEBEL_PERGOLA_PHOTOS_19.jpg",
       "/img/Images_pergolas_CEBEL/221114_CEBEL_PERGOLA_PHOTOS_20.jpg",
     ],
-    category: "pergolas",
+    category: "pergola",
     hauteur: 2650,
   },
   {
@@ -141,7 +141,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_pergolas_CEBEL/221114_CEBEL_PERGOLA_PHOTOS_21.jpg",
       "/img/Images_pergolas_CEBEL/221114_CEBEL_PERGOLA_PHOTOS_28.jpg",
     ],
-    category: "pergolas",
+    category: "pergola",
     hauteur: 2650,
   },
   {
@@ -152,7 +152,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_pergolas_CEBEL/ARCADIE_Inspiration_Corse_-_LPP_TV_bi_ton_et_panneaux_tôles.png",
       "/img/Images_pergolas_CEBEL/ARCADIE_inspiration_Corse_-_LPP_TV_nuit_bi_ton_et_panneaux_tôles_2.png",
     ],
-    category: "pergolas",
+    category: "pergola",
     hauteur: 2650,
   },
   {
@@ -163,7 +163,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_pergolas_CEBEL/AUSTRAL-BOREAL_-_2M_NC_6_-_1.jpg",
       "/img/Images_pergolas_CEBEL/AUSTRAL-BOREAL_-_2M_NC_6_-_3.jpg",
     ],
-    category: "pergolas",
+    category: "pergola",
     hauteur: 2650,
   },
   {
@@ -174,7 +174,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_pergolas_CEBEL/AUSTRAL-BOREAL_-_Ilot_NC_8_-_1.jpg",
       "/img/Images_pergolas_CEBEL/AUSTRAL-BOREAL_-_Ilot_NC_8_-_3.jpg",
     ],
-    category: "pergolas",
+    category: "pergola",
     hauteur: 2650,
   },
   {
@@ -185,7 +185,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_pergolas_CEBEL/AUSTRAL-BOREAL_-_LPA_RO_palmier.jpg",
       "/img/Images_pergolas_CEBEL/AUSTRAL-BOREAL_-_LPP_NC_7_-_4.jpg",
     ],
-    category: "pergolas",
+    category: "pergola",
     hauteur: 2650,
   },
   {
@@ -196,7 +196,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_pergolas_CEBEL/CARAT_-_LPP_DE_1.jpg",
       "/img/Images_pergolas_CEBEL/CARAT_-_LPP_DE_3.jpg",
     ],
-    category: "pergolas",
+    category: "pergola",
     hauteur: 2650,
   },
   {
@@ -208,7 +208,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_pergolas_CEBEL/CARAT_-_îlot_RD_3.jpg",
     ],
 
-    category: "pergolas",
+    category: "pergola",
     hauteur: 2650,
   },
   {
@@ -219,7 +219,7 @@ export const PRODUCTS: Product[] = [
       "/img/Images_pergolas_CEBEL/ELEMENT_-_LPA_NC_3_-_3.jpg",
       "/img/Images_pergolas_CEBEL/ELEMENT_-_LPP_NC_4.jpg",
     ],
-    category: "pergolas",
+    category: "pergola",
     hauteur: 2650,
   },
 ];

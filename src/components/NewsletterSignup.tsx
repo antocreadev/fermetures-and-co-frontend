@@ -25,7 +25,7 @@ const NewsletterSignup = () => {
           alt="Newsletter Illustration"
           className="w-full object-cover rounded-lg"
         />
-        <span className="absolute top-10 left-0 bg-opacity-70 bg-neutral-100 px-4 py-2 text-lg font-semibold shadow-lg">
+        <span className="absolute top-10 left-0 bg-opacity-70 bg-neutral-100 px-4 py-2 text-lg font-semibold shadow-lg uppercase">
           Bienvenue chez Fermetures & Co !
         </span>
       </div>

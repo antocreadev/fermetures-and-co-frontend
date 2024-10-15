@@ -5,8 +5,12 @@ import { Product } from "@/types/Product";
 
 export const ProductItem = ({
   product,
+  slider,
   ...props
-}: { product: Product } & React.LinkHTMLAttributes<HTMLAnchorElement>) => {
+}: {
+  product: Product;
+  slider: boolean;
+} & React.LinkHTMLAttributes<HTMLAnchorElement>) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -16,13 +20,15 @@ export const ProductItem = ({
   return (
     <div
       className={cn(
-        "flex flex-col items-center p-2 bg-white border border-neutral-200 cursor-pointer mr-1 ml-1",
+        slider == true
+          ? `flex flex-col items-center justify-between p-2 bg-white border border-neutral-200 cursor-pointer mr-1 ml-1`
+          : `flex flex-col items-center justify-between p-2 bg-white border border-neutral-200 cursor-pointer `,
         props.className
       )}
     >
       <a href={`/product/${product.id}`} className="w-full">
         <div
-          className={`w-full h-[150px] bg-cover bg-center`}
+          className={`w-full h-[125px] bg-cover bg-center`}
           style={{
             backgroundImage: isMounted
               ? `url(${product.imageUrls[0]})`
@@ -58,7 +64,7 @@ export const ProductItemBig = ({
     <a
       href={props.href}
       className={cn(
-        "relative flex flex-col justify-center items-center p-2 bg-white border border-neutral-200 cursor-pointer",
+        "relative flex flex-col justify-center items-center p-2 bg-white border border-neutral-200 cursor-pointer lg:w-full",
         props.className
       )}
     >
@@ -66,7 +72,7 @@ export const ProductItemBig = ({
         <img
           src={product.imageUrls[0]}
           alt={product.name}
-          className="h-[90%] object-cover pb-1"
+          className="h-[90%] object-cover pb-1 w-full"
         />
       )}
       <div className="absolute right-0 bottom-5 bg-neutral-200 text-end px-2 py-1">

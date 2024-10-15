@@ -2,7 +2,7 @@ import { Star } from "lucide-react";
 
 export default function CardReview() {
   return (
-    <div className="border rounded-lg p-4 shadow-sm max-w-sm m-2">
+    <div className="border rounded-lg p-4 shadow-sm max-w-[19rem] m-2">
       <div className="flex items-center space-x-1">
         {[...Array(5)].map((_, index) => (
           <Star key={index} className="text-neutral-500" fill="currentColor" />

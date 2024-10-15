@@ -6,6 +6,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useParams } from "next/navigation";
 import { notFound } from "next/navigation";
+import PaymentMethods from "@/components/PaymentMethods";
+import TextHomepage from "@/components/TextHomepage";
+import Footer from "@/components/Footer";
 
 const ProductPage = () => {
   const params = useParams<{ slug: string }>();
@@ -31,11 +34,11 @@ const ProductPage = () => {
     <>
       <Navbar />
       <CategoryNavList />
-      <div className="bg-neutral-50 flex flex-col items-center pb-24">
+      <div className="bg-neutral-50 flex flex-col items-center pb-2">
         {/* Container principal avec flex en colonne pour petits écrans et row pour grands */}
-        <div className="max-w-7xl p-6 flex flex-col md:flex-row gap-8">
+        <div className="max-w-7xl p-6 pb-0 flex flex-col md:flex-row gap-8">
           {/* Colonne des images produit */}
-          <div className="flex-1 flex flex-col gap-2 items-center justify-center p-6">
+          <div className="flex-1 flex flex-col gap-2 items-center justify-center p-6 pb-0">
             <Carousel dynamicHeight={true} infiniteLoop={true}>
               {product.imageUrls.map((url, idx) => (
                 <img key={idx} src={url} alt="Product" />
@@ -87,7 +90,7 @@ const ProductPage = () => {
             )}
 
             <button
-              className="mt-4 w-full bg-neutral-400 text-white rounded-lg py-2 hover:bg-neutral-500 cursor-pointer"
+              className="mt-4 w-full bg-green-500 text-white rounded-lg py-2 hover:bg-green-600 cursor-pointer"
               onClick={handleAddToCart}
             >
               Ajouter au panier
@@ -98,9 +101,11 @@ const ProductPage = () => {
         {/* Description technique */}
         <div
           id="description"
-          className="mt-6 w-full flex flex-col items-center justify-center border-t-2 pt-4"
+          className=" w-full flex flex-col items-center justify-center border-t-2 pt-1"
         >
-          <h2 className="text-lg font-semibold">Description technique</h2>
+          <h2 className="text-lg font-semibold uppercase">
+            Description technique
+          </h2>
           <div className="mt-2 text-neutral-500 w-3/4">
             {product.category === "pergolas" ? (
               <ul className="list-disc list-inside space-y-2 grid grid-cols-2">
@@ -146,7 +151,9 @@ const ProductPage = () => {
 
         {/* Livraison & Retours */}
         <div className="mt-6 flex flex-col items-center justify-center">
-          <h2 className="text-lg font-semibold">Livraison & Retours</h2>
+          <h2 className="text-lg font-semibold uppercase">
+            Livraison & Retours
+          </h2>
           <div className="mt-2 text-neutral-500 w-3/4">
             Nous offrons la livraison gratuite pour toutes les commandes
             supérieures à 50 €. Les commandes sont généralement expédiées dans
@@ -157,6 +164,9 @@ const ProductPage = () => {
           </div>
         </div>
       </div>
+      <PaymentMethods />
+      <TextHomepage />
+      <Footer />
     </>
   );
 };
