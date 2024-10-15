@@ -41,13 +41,13 @@ export default function Reviews() {
             slidesToShow:
               typeof window !== "undefined" && window.innerWidth >= 1000
                 ? 3
-                : window.innerWidth >= 768
+                : typeof window !== "undefined" && window.innerWidth >= 768
                 ? 2
                 : 1,
             slidesToScroll:
               typeof window !== "undefined" && window.innerWidth >= 1000
                 ? 3
-                : window.innerWidth >= 768
+                : typeof window !== "undefined" && window.innerWidth >= 768
                 ? 2
                 : 1,
           }}
