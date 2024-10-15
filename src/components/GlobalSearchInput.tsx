@@ -17,7 +17,7 @@ const GlobalSearchInput = () => {
   };
 
   return (
-    <div className="relative w-full pt-2 md:p-0">
+    <div className="relative w-full pt-4 md:pt-2 md:p-0">
       <input
         type="search"
         id="global-search"

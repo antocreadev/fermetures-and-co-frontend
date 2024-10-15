@@ -335,6 +335,9 @@
 .PhoneInputInput::placeholder {
   color: #1a1d21;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 .slick-prev::before {
   color: #737373 !important;

@@ -31,7 +31,7 @@ const ProductPage = () => {
   };
 
   return (
-    <>
+    <main>
       <Navbar />
       <CategoryNavList />
       <div className="bg-neutral-50 flex flex-col items-center pb-2">
@@ -46,7 +46,7 @@ const ProductPage = () => {
             </Carousel>
           </div>
           {/* Colonne des détails produit */}
-          <div className="w-1/3 h-[30rem] p-6 bg-neutral-200 flex flex-col justify-between">
+          <div className="w-full md:w-1/3 h-full md:h-[30rem] p-6 bg-neutral-200 flex flex-col justify-between mb-2 md:mb-0">
             <div>
               <h1 className="text-4xl font-bold mt-2">{product.name}</h1>
 
@@ -167,7 +167,7 @@ const ProductPage = () => {
       <PaymentMethods />
       <TextHomepage />
       <Footer />
-    </>
+    </main>
   );
 };
 
