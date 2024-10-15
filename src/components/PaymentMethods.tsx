@@ -18,8 +18,8 @@ const PaymentMethods = () => {
   ];
 
   return (
-    <div className="bg-neutral-300 py-6">
-      <h2 className=" text-center text-xl font-semibold mb-8">
+    <div className="bg-neutral-800 py-6">
+      <h2 className=" text-center text-xl font-semibold mb-8 uppercase text-neutral-50">
         Paiement sécurisé
       </h2>
       <div className="flex justify-center items-center gap-6 flex-wrap">

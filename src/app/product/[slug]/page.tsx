@@ -150,7 +150,7 @@ const ProductPage = () => {
         </div>
 
         {/* Livraison & Retours */}
-        <div className="mt-6 flex flex-col items-center justify-center">
+        <div className="mt-6 mb-6 flex flex-col items-center justify-center">
           <h2 className="text-lg font-semibold uppercase">
             Livraison & Retours
           </h2>

@@ -41,7 +41,7 @@ const GlobalSearchInput = () => {
         <ul className="absolute top-full left-0 right-0 bg-white border border-neutral-300 z-10 max-h-60 overflow-y-auto w-full">
           {filteredResults.map((product) => (
             <a href={`/product/${product.id}`} key={product.id}>
-              <li className="p-2 hover:bg-neutral-100 flex gap-6">
+              <li className="p-2 hover:bg-neutral-200 flex gap-6">
                 <img className="w-16" src={product.imageUrls[0]} alt="" />
                 {product.name}
               </li>

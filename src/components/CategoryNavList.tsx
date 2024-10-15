@@ -21,7 +21,7 @@ const CategoryNavItem = ({ category }: CategoryNavItemProps) => {
 // portails coulissant, portail battant, portillon, accessoire portail, motorisation portail, pergolas
 const CategoryNavList = () => {
   return (
-    <nav className="border-t md:border-b border-neutral-400 p-2 bg-transparent md:bg-neutral-500 text-neutral-50 font-semibold">
+    <nav className="border-t md:border-b border-neutral-800 p-2 bg-transparent md:bg-neutral-800 text-neutral-50 font-semibold">
       <ul className="hidden md:flex flex-row justify-center">
         <CategoryNavItem
           category={{ slug: "portail-coulissant", name: "Portail coulissant" }}

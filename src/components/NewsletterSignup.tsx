@@ -18,14 +18,14 @@ const NewsletterSignup = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center bg-gray-100 py-10 px-5">
+    <div className="flex flex-col md:flex-row items-center justify-center bg-neutral-200 py-10 px-5">
       <div className="relative w-full md:w-1/2 flex justify-center">
         <img
           src="/img/Images_pergolas_CEBEL/AUSTRAL-BOREAL_-_LPA_RO.jpg"
           alt="Newsletter Illustration"
           className="w-full object-cover rounded-lg"
         />
-        <span className="absolute top-10 left-0 bg-opacity-70 bg-neutral-100 px-4 py-2 text-lg font-semibold shadow-lg uppercase">
+        <span className="absolute top-10 left-0 bg-opacity-70 bg-neutral-200 px-4 py-2 text-lg font-semibold shadow-lg uppercase">
           Bienvenue chez Fermetures & Co !
         </span>
       </div>

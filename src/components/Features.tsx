@@ -42,15 +42,17 @@ const Features = () => {
   ];
 
   return (
-    <div className="bg-white py-10">
-      <div className="flex justify-center items-center gap-20">
+    <div className="bg-neutral-50 py-10">
+      <div className="flex justify-center items-center gap-10">
         {features.map((feature, index) => (
           <div
             key={index}
-            className="flex items-center justify-center flex-col"
+            className="flex items-center justify-center flex-col border-neutral-950 border-2 rounded-lg p-4 max-w-60 min-w-60  min-h-28 max-h-28"
           >
-            <div className="mb-4">{feature.icon}</div>
-            <p className="text-gray-700 font-semibold">{feature.title}</p>
+            <div className="">{feature.icon}</div>
+            <p className="text-neutral-950 font-semibold uppercase text-center text-sm mt-2">
+              {feature.title}
+            </p>
           </div>
         ))}
       </div>

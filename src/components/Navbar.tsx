@@ -191,12 +191,12 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex flex-col px-5 pt-3 pb-5">
+      <nav className="flex flex-col px-5 pt-3 pb-5 bg-neutral-50">
         <div className="flex justify-between items-center pt-2">
           <div className="flex flex-row gap-2 items-center">
             <button
               onClick={toggleMenuDrawer}
-              className="p-1 rounded-sm hover:bg-neutral-100 md:hidden"
+              className="p-1 rounded-sm hover:bg-neutral-200 md:hidden"
             >
               <MenuIcon size={28} strokeWidth={1} />
             </button>
@@ -217,11 +217,11 @@ const Navbar = () => {
           <div className="flex flex-row gap-4 items-center">
             <button
               onClick={toggleCartDrawer}
-              className="p-1 rounded-full hover:bg-neutral-100"
+              className="p-1 rounded-full hover:bg-neutral-200"
             >
               <ShoppingBagIcon size={24} strokeWidth={1} />
             </button>
-            <button className="p-1 rounded-full hover:bg-neutral-100">
+            <button className="p-1 rounded-full hover:bg-neutral-200">
               <UserCircleIcon size={24} strokeWidth={1} />
             </button>
           </div>
