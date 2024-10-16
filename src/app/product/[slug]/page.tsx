@@ -52,7 +52,7 @@ const ProductPage = () => {
 
               <p>
                 Prix :
-                <span className="text-2xl font-bold text-neutral-500">
+                <span className="text-2xl font-bold text-neutral-950">
                   {" "}
                   {product.price.toFixed(2)} €
                 </span>
@@ -61,10 +61,10 @@ const ProductPage = () => {
 
             {product.category === "pergolas" ? (
               <ul className="list-disc list-inside space-y-2">
-                <li className="text-neutral-700">Adossée ou en îlot</li>
-                <li className="text-neutral-700">Poteaux 125 mm x 125 mm</li>
-                <li className="text-neutral-700">Option stores verticaux</li>
-                <li className="text-neutral-700">
+                <li className="text-neutral-950">Adossée ou en îlot</li>
+                <li className="text-neutral-950">Poteaux 125 mm x 125 mm</li>
+                <li className="text-neutral-950">Option stores verticaux</li>
+                <li className="text-neutral-950">
                   {" "}
                   <a className="underline" href="#description">
                     Voir plus
@@ -73,14 +73,14 @@ const ProductPage = () => {
               </ul>
             ) : (
               <ul className="list-disc list-inside space-y-2">
-                <li className="text-neutral-700">Aluminium de qualité</li>
-                <li className="text-neutral-700">
+                <li className="text-neutral-950">Aluminium de qualité</li>
+                <li className="text-neutral-950">
                   Assemblage mécanique sans soudure
                 </li>
-                <li className="text-neutral-700">
+                <li className="text-neutral-950">
                   Traverse 160 mm pour une grande robustesse
                 </li>
-                <li className="text-neutral-700">
+                <li className="text-neutral-950">
                   {" "}
                   <a className="underline" href="#description">
                     Voir plus
@@ -101,60 +101,60 @@ const ProductPage = () => {
         {/* Description technique */}
         <div
           id="description"
-          className=" w-full flex flex-col items-center justify-center border-t-2 pt-1"
+          className=" w-full flex flex-col items-center justify-center border-t-2 pt-1 text-neutral-950"
         >
           <h2 className="text-lg font-semibold uppercase">
             Description technique
           </h2>
-          <div className="mt-2 text-neutral-500 w-3/4">
+          <div className="mt-2 text-neutral-950 w-3/4">
             {product.category === "pergolas" ? (
               <ul className="list-disc list-inside space-y-2 grid grid-cols-2">
-                <li className="text-neutral-700">Adossée ou en îlot</li>
-                <li className="text-neutral-700">Poteaux 125 mm x 125 mm</li>
-                <li className="text-neutral-700">Option stores verticaux</li>
-                <li className="text-neutral-700">Option éclairage LED</li>
-                <li className="text-neutral-700">Lames simple paroi</li>
-                <li className="text-neutral-700">
+                <li className="text-neutral-950">Adossée ou en îlot</li>
+                <li className="text-neutral-950">Poteaux 125 mm x 125 mm</li>
+                <li className="text-neutral-950">Option stores verticaux</li>
+                <li className="text-neutral-950">Option éclairage LED</li>
+                <li className="text-neutral-950">Lames simple paroi</li>
+                <li className="text-neutral-950">
                   Structure sans vis apparente
                 </li>
-                <li className="text-neutral-700">Largeur max = 5954 mm</li>
-                <li className="text-neutral-700">Avancée max = 4000 mm</li>
-                <li className="text-neutral-700">Hauteur = 2650 mm</li>
-                <li className="text-neutral-700">Motorisation Somfy ou Nice</li>
-                <li className="text-neutral-700">Aluminium de qualité</li>
+                <li className="text-neutral-950">Largeur max = 5954 mm</li>
+                <li className="text-neutral-950">Avancée max = 4000 mm</li>
+                <li className="text-neutral-950">Hauteur = 2650 mm</li>
+                <li className="text-neutral-950">Motorisation Somfy ou Nice</li>
+                <li className="text-neutral-950">Aluminium de qualité</li>
               </ul>
             ) : (
-              <ul className="list-disc list-inside space-y-2">
-                <li className="text-neutral-700">Aluminium de qualité</li>
-                <li className="text-neutral-700">
+              <ul className="list-disc list-inside space-y-2 text-neutral-950">
+                <li className="text-neutral-950">Aluminium de qualité</li>
+                <li className="text-neutral-950">
                   Assemblage mécanique sans soudure
                 </li>
-                <li className="text-neutral-700">
+                <li className="text-neutral-950">
                   Traverse 160 mm pour une grande robustesse
                 </li>
-                <li className="text-neutral-700">
+                <li className="text-neutral-950">
                   Renfort sur toute la largeur du portail
                 </li>
-                <li className="text-neutral-700">Visserie en inox</li>
-                <li className="text-neutral-700">
+                <li className="text-neutral-950">Visserie en inox</li>
+                <li className="text-neutral-950">
                   Joints entre certains profils pour éviter les vibrations et
                   les effets sonores désagréables
                 </li>
-                <li className="text-neutral-700">
+                <li className="text-neutral-950">
                   Laquage certifié Qualicoat et Qualimarine
                 </li>
-                <li className="text-neutral-700">Motorisable</li>
+                <li className="text-neutral-950">Motorisable</li>
               </ul>
             )}
           </div>
         </div>
 
         {/* Livraison & Retours */}
-        <div className="mt-6 mb-6 flex flex-col items-center justify-center">
+        <div className="mt-6 mb-6 flex flex-col items-center justify-center text-neutral-950">
           <h2 className="text-lg font-semibold uppercase">
             Livraison & Retours
           </h2>
-          <div className="mt-2 text-neutral-500 w-3/4">
+          <div className="mt-2 text-neutral-950 w-3/4 ">
             Nous offrons la livraison gratuite pour toutes les commandes
             supérieures à 50 €. Les commandes sont généralement expédiées dans
             un délai de 2 à 3 jours ouvrables. Vous pouvez retourner les
