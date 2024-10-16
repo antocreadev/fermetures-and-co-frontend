@@ -345,3 +345,9 @@ html {
 .slick-next::before {
   color: #737373 !important;
 }
+
+.thumbs-wrapper ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

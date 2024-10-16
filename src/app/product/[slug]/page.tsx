@@ -36,7 +36,7 @@ const ProductPage = () => {
       <CategoryNavList />
       <div className="bg-neutral-200 flex flex-col items-center">
         {/* Container principal avec flex en colonne pour petits écrans et row pour grands */}
-        <div className="max-w-7xl p-6 pb-0 flex flex-col md:flex-row gap-8">
+        <div className="max-w-7xl p-6 pb-0 flex flex-col items-center justify-center md:flex-row gap-8">
           {/* Colonne des images produit */}
           <div className="flex-1 flex flex-col gap-2 items-center justify-center p-6 pb-0">
             <Carousel dynamicHeight={true} infiniteLoop={true}>
