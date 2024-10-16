@@ -1,6 +1,6 @@
 export default function TextHomepage() {
   return (
-    <div className="p-4 md:pl-32 md:pr-32 text-left flex flex-col gap-2 bg-neutral-200 text-neutral-950">
+    <div className="p-6 md:pl-32 md:pr-32 text-left flex flex-col gap-2 bg-neutral-200 text-neutral-950">
       <p>
         Bienvenue chez Fermetures & Co ! Experts dans la vente en ligne de
         solutions pour la fermeture et la sécurisation des espaces extérieurs,
