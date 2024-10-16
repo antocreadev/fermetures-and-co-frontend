@@ -46,7 +46,7 @@ const ProductPage = () => {
             </Carousel>
           </div>
           {/* Colonne des détails produit */}
-          <div className="w-full md:w-1/3 h-full md:h-[30rem] p-6 flex flex-col justify-between mb-2 md:mb-0 z-50 bg-neutral-50 relative lg:top-6">
+          <div className="w-full md:w-1/3 h-full md:h-[30rem] p-6 flex flex-col justify-between mb-2 md:mb-0 z-30 bg-neutral-50 relative lg:top-6">
             <div>
               <h1 className="text-4xl font-bold mt-2">{product.name}</h1>
 
