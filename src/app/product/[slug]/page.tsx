@@ -34,7 +34,7 @@ const ProductPage = () => {
     <main>
       <Navbar />
       <CategoryNavList />
-      <div className="bg-neutral-50 flex flex-col items-center pb-2">
+      <div className="bg-neutral-200 flex flex-col items-center">
         {/* Container principal avec flex en colonne pour petits écrans et row pour grands */}
         <div className="max-w-7xl p-6 pb-0 flex flex-col md:flex-row gap-8">
           {/* Colonne des images produit */}
@@ -46,7 +46,7 @@ const ProductPage = () => {
             </Carousel>
           </div>
           {/* Colonne des détails produit */}
-          <div className="w-full md:w-1/3 h-full md:h-[30rem] p-6 bg-neutral-200 flex flex-col justify-between mb-2 md:mb-0">
+          <div className="w-full md:w-1/3 h-full md:h-[30rem] p-6 flex flex-col justify-between mb-2 md:mb-0 z-50 bg-neutral-50">
             <div>
               <h1 className="text-4xl font-bold mt-2">{product.name}</h1>
 
@@ -101,7 +101,7 @@ const ProductPage = () => {
         {/* Description technique */}
         <div
           id="description"
-          className=" w-full flex flex-col items-center justify-center border-t-2 pt-1 text-neutral-950"
+          className=" w-full flex flex-col items-center justify-center border-t-2 pt-1 text-neutral-950 pb-2 bg-neutral-50"
         >
           <h2 className="text-lg font-semibold uppercase">
             Description technique
@@ -124,7 +124,7 @@ const ProductPage = () => {
                 <li className="text-neutral-950">Aluminium de qualité</li>
               </ul>
             ) : (
-              <ul className="list-disc list-inside space-y-2 text-neutral-950">
+              <ul className="list-disc list-inside space-y-2 text-neutral-950 bg-neutral-50">
                 <li className="text-neutral-950">Aluminium de qualité</li>
                 <li className="text-neutral-950">
                   Assemblage mécanique sans soudure
@@ -150,7 +150,7 @@ const ProductPage = () => {
         </div>
 
         {/* Livraison & Retours */}
-        <div className="mt-6 mb-6 flex flex-col items-center justify-center text-neutral-950">
+        <div className="pt-6 pb-6 flex flex-col items-center justify-center text-neutral-950 bg-neutral-50">
           <h2 className="text-lg font-semibold uppercase">
             Livraison & Retours
           </h2>
