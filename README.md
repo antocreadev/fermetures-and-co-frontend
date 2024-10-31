@@ -35,3 +35,5 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 # fermetures_and_co
+
+Dans la page produit rajouté, 4x Prix, enelver description pour mettre avec motorisation, et phone 
