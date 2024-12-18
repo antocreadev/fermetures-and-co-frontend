@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  sexe          String
+  nom           String
+  prenom        String
+  telephone     String
+  recevoirMails Boolean
+  rgpd          Boolean
+  email         String    @unique
+  password      String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  orders        Order[]
+  addresses     Address[]
+}
+
+model Address {
+  id                String @id @default(cuid())
+  nom               String
+  prenom            String
+  adresse           String
+  complementAdresse String
+  codePostal        String
+  ville             String
+  pays              String
+  userId            String
+  user              User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Product {
+  id       String  @id @default(cuid())
+  name     String
+  price    Decimal @default(0.0)
+  idImage  String
+  category String
+  hauteur  Int
+  largeur  Int
+  couleur  String
+  images   Image[]
+  orders   Order[]
+}
+
+model Image {
+  id        String  @id @default(cuid())
+  url       String
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Order {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  state     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
