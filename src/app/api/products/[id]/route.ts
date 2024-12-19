@@ -38,7 +38,13 @@ export async function PUT(
         category: body.category,
         hauteur: body.hauteur,
         largeur: body.largeur,
-        couleur: body.couleur,
+        ralId: body.ralId,
+        boisId: body.boisId,
+      },
+      include: {
+        images: true,
+        ral: true,
+        bois: true,
       },
     });
 

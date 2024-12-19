@@ -111,7 +111,7 @@ export default function AddProduct() {
       <DialogTrigger asChild>
         <Button>Ajouter un produit</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="">
         <DialogHeader>
           <DialogTitle>Ajouter un produit</DialogTitle>
         </DialogHeader>

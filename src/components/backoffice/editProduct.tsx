@@ -10,22 +10,41 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Pencil, X } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Product = {
   id: string;
   name: string;
-  price: number;
+  price: number | string;
   category: string;
   hauteur: number;
   largeur: number;
-  couleur: string;
   images: {
     id: string;
     url: string;
+    productId: string;
   }[];
+  ralId: string | null;
+  boisId: string | null;
+  ral: {
+    id: string;
+    name: string;
+    imageUrl: string;
+  } | null;
+  bois: {
+    id: string;
+    name: string;
+    imageUrl: string;
+  } | null;
 };
 
 type EditProductProps = {
@@ -38,15 +57,39 @@ export default function EditProduct({ product, onUpdate }: EditProductProps) {
   const [newImages, setNewImages] = useState<File[]>([]);
   const [currentImages, setCurrentImages] = useState(product.images);
   const [open, setOpen] = useState(false);
+  const [rals, setRals] = useState<RAL[]>([]);
+  const [bois, setBois] = useState<Bois[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [ralsResponse, boisResponse] = await Promise.all([
+          fetch("/api/rals"),
+          fetch("/api/bois"),
+        ]);
+        const ralsData = await ralsResponse.json();
+        const boisData = await boisResponse.json();
+        setRals(ralsData);
+        setBois(boisData);
+      } catch (error) {
+        console.error("Erreur lors du chargement des données:", error);
+      }
+    };
+
+    if (open) {
+      fetchData();
+    }
+  }, [open]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
     const formData = new FormData(e.currentTarget);
+    const ralId = formData.get("ralId");
+    const boisId = formData.get("boisId");
 
     try {
-      // Mettre à jour le produit
       await fetch(`/api/products/${product.id}`, {
         method: "PUT",
         body: JSON.stringify({
@@ -55,7 +98,8 @@ export default function EditProduct({ product, onUpdate }: EditProductProps) {
           category: formData.get("category"),
           hauteur: parseInt(formData.get("hauteur") as string),
           largeur: parseInt(formData.get("largeur") as string),
-          couleur: formData.get("couleur"),
+          ralId: ralId === "none" ? null : ralId,
+          boisId: boisId === "none" ? null : boisId,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -103,7 +147,7 @@ export default function EditProduct({ product, onUpdate }: EditProductProps) {
           <Pencil className="h-4 w-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="max-h-screen overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Modifier le produit</DialogTitle>
         </DialogHeader>
@@ -152,14 +196,39 @@ export default function EditProduct({ product, onUpdate }: EditProductProps) {
               defaultValue={product.largeur}
             />
           </div>
+
           <div className="grid w-full items-center gap-1.5">
-            <Label htmlFor="couleur">Couleur</Label>
-            <Input
-              required
-              id="couleur"
-              name="couleur"
-              defaultValue={product.couleur}
-            />
+            <Label htmlFor="ralId">RAL</Label>
+            <Select name="ralId" defaultValue={product.ralId || "none"}>
+              <SelectTrigger>
+                <SelectValue placeholder="Sélectionner un RAL" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="none">Aucun RAL</SelectItem>
+                {rals.map((ral) => (
+                  <SelectItem key={ral.id} value={ral.id}>
+                    {ral.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="grid w-full items-center gap-1.5">
+            <Label htmlFor="boisId">Bois</Label>
+            <Select name="boisId" defaultValue={product.boisId || "none"}>
+              <SelectTrigger>
+                <SelectValue placeholder="Sélectionner un Bois" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="none">Aucun Bois</SelectItem>
+                {bois.map((b) => (
+                  <SelectItem key={b.id} value={b.id}>
+                    {b.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
           <div className="space-y-2">
