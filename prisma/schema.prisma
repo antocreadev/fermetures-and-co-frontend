@@ -44,9 +44,26 @@ model Product {
   category String
   hauteur  Int
   largeur  Int
-  couleur  String
   images   Image[]
   orders   Order[]
+  ralId    String?
+  ral      RAL?    @relation(fields: [ralId], references: [id])
+  boisId   String?
+  bois     Bois?   @relation(fields: [boisId], references: [id])
+}
+
+model RAL {
+  id       String    @id @default(cuid())
+  name     String
+  imageUrl String
+  products Product[]
+}
+
+model Bois {
+  id       String    @id @default(cuid())
+  name     String
+  imageUrl String
+  products Product[]
 }
 
 model Image {
