@@ -28,6 +28,12 @@ export async function PUT(
   try {
     const body = await request.json();
 
+    await prisma.productOption.deleteMany({
+      where: {
+        productId: params.id,
+      },
+    });
+
     const product = await prisma.product.update({
       where: {
         id: params.id,
@@ -40,11 +46,22 @@ export async function PUT(
         largeur: body.largeur,
         ralId: body.ralId,
         boisId: body.boisId,
+        options: {
+          create:
+            body.options?.map((option: { id: string }) => ({
+              optionId: option.id,
+            })) || [],
+        },
       },
       include: {
         images: true,
         ral: true,
         bois: true,
+        options: {
+          include: {
+            option: true,
+          },
+        },
       },
     });
 

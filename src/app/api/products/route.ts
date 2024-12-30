@@ -8,6 +8,11 @@ export async function GET() {
         images: true,
         ral: true,
         bois: true,
+        options: {
+          include: {
+            option: true,
+          },
+        },
       },
     });
 
@@ -39,11 +44,22 @@ export async function POST(request: NextRequest) {
         idImage: "default",
         ralId: body.ralId,
         boisId: body.boisId,
+        options: {
+          create:
+            body.options?.map((option: { id: string }) => ({
+              optionId: option.id,
+            })) || [],
+        },
       },
       include: {
         images: true,
         ral: true,
         bois: true,
+        options: {
+          include: {
+            option: true,
+          },
+        },
       },
     });
 

@@ -45,6 +45,13 @@ type Product = {
     name: string;
     imageUrl: string;
   } | null;
+  options: {
+    option: {
+      id: string;
+      name: string;
+      price: number;
+    };
+  }[];
 };
 
 type EditProductProps = {
@@ -59,18 +66,31 @@ export default function EditProduct({ product, onUpdate }: EditProductProps) {
   const [open, setOpen] = useState(false);
   const [rals, setRals] = useState<RAL[]>([]);
   const [bois, setBois] = useState<Bois[]>([]);
+  const [availableProducts, setAvailableProducts] = useState<Product[]>([]);
+  const [selectedOptions, setSelectedOptions] = useState<
+    Array<{ id: string; name: string }>
+  >(
+    product.options.map((opt) => ({
+      id: opt.option.id,
+      name: opt.option.name,
+    }))
+  );
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [ralsResponse, boisResponse] = await Promise.all([
-          fetch("/api/rals"),
-          fetch("/api/bois"),
-        ]);
+        const [ralsResponse, boisResponse, productsResponse] =
+          await Promise.all([
+            fetch("/api/rals"),
+            fetch("/api/bois"),
+            fetch("/api/products"),
+          ]);
         const ralsData = await ralsResponse.json();
         const boisData = await boisResponse.json();
+        const productsData = await productsResponse.json();
         setRals(ralsData);
         setBois(boisData);
+        setAvailableProducts(productsData);
       } catch (error) {
         console.error("Erreur lors du chargement des données:", error);
       }
@@ -80,6 +100,26 @@ export default function EditProduct({ product, onUpdate }: EditProductProps) {
       fetchData();
     }
   }, [open]);
+
+  const handleAddOption = (optionId: string) => {
+    const selectedProduct = availableProducts.find((p) => p.id === optionId);
+    if (
+      selectedProduct &&
+      !selectedOptions.some((opt) => opt.id === optionId)
+    ) {
+      setSelectedOptions([
+        ...selectedOptions,
+        {
+          id: optionId,
+          name: selectedProduct.name,
+        },
+      ]);
+    }
+  };
+
+  const handleRemoveOption = (optionId: string) => {
+    setSelectedOptions(selectedOptions.filter((opt) => opt.id !== optionId));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -100,6 +140,7 @@ export default function EditProduct({ product, onUpdate }: EditProductProps) {
           largeur: parseInt(formData.get("largeur") as string),
           ralId: ralId === "none" ? null : ralId,
           boisId: boisId === "none" ? null : boisId,
+          options: selectedOptions,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -268,6 +309,48 @@ export default function EditProduct({ product, onUpdate }: EditProductProps) {
                 }
               }}
             />
+          </div>
+
+          <div className="grid w-full items-center gap-1.5">
+            <Label>Options du produit</Label>
+            <div className="space-y-2">
+              <Select onValueChange={handleAddOption}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Sélectionner une option" />
+                </SelectTrigger>
+                <SelectContent>
+                  {availableProducts
+                    .filter(
+                      (p) =>
+                        p.id !== product.id &&
+                        !selectedOptions.some((opt) => opt.id === p.id)
+                    )
+                    .map((p) => (
+                      <SelectItem key={p.id} value={p.id}>
+                        {p.name} - {p.price}€
+                      </SelectItem>
+                    ))}
+                </SelectContent>
+              </Select>
+
+              <div className="flex flex-wrap gap-2">
+                {selectedOptions.map((option) => (
+                  <div
+                    key={option.id}
+                    className="flex items-center gap-1 rounded-md bg-secondary px-2 py-1"
+                  >
+                    <span className="text-sm">{option.name}</span>
+                    <button
+                      type="button"
+                      onClick={() => handleRemoveOption(option.id)}
+                      className="ml-1 rounded-full hover:bg-destructive/20"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           <Button type="submit" disabled={loading}>

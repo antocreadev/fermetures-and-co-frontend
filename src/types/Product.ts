@@ -6,4 +6,5 @@ export type Product = {
   imageUrls: string[];
   category: string;
   hauteur: number;
+  options?: Product[];
 };

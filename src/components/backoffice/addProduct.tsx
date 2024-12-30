@@ -17,6 +17,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -32,12 +33,23 @@ type Bois = {
   imageUrl: string;
 };
 
+type Product = {
+  id: string;
+  name: string;
+  price: number;
+  category: string;
+};
+
 export default function AddProduct() {
   const router = useRouter();
   const [images, setImages] = useState<File[]>([]);
   const [loading, setLoading] = useState(false);
   const [rals, setRals] = useState<RAL[]>([]);
   const [bois, setBois] = useState<Bois[]>([]);
+  const [availableProducts, setAvailableProducts] = useState<Product[]>([]);
+  const [selectedOptions, setSelectedOptions] = useState<
+    Array<{ id: string; name: string }>
+  >([]);
 
   // Ajout des catégories disponibles
   const categories = [
@@ -53,14 +65,18 @@ export default function AddProduct() {
     // Charger les RALs et Bois au montage du composant
     const fetchData = async () => {
       try {
-        const [ralsResponse, boisResponse] = await Promise.all([
-          fetch("/api/rals"),
-          fetch("/api/bois"),
-        ]);
+        const [ralsResponse, boisResponse, productsResponse] =
+          await Promise.all([
+            fetch("/api/rals"),
+            fetch("/api/bois"),
+            fetch("/api/products"),
+          ]);
         const ralsData = await ralsResponse.json();
         const boisData = await boisResponse.json();
+        const productsData = await productsResponse.json();
         setRals(ralsData);
         setBois(boisData);
+        setAvailableProducts(productsData);
       } catch (error) {
         console.error("Erreur lors du chargement des données:", error);
       }
@@ -86,6 +102,7 @@ export default function AddProduct() {
           largeur: parseInt(formData.get("largeur") as string),
           ralId: formData.get("ralId") || undefined,
           boisId: formData.get("boisId") || undefined,
+          options: selectedOptions,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -116,12 +133,32 @@ export default function AddProduct() {
     }
   };
 
+  const handleAddOption = (optionId: string) => {
+    const selectedProduct = availableProducts.find((p) => p.id === optionId);
+    if (
+      selectedProduct &&
+      !selectedOptions.some((opt) => opt.id === optionId)
+    ) {
+      setSelectedOptions([
+        ...selectedOptions,
+        {
+          id: optionId,
+          name: selectedProduct.name,
+        },
+      ]);
+    }
+  };
+
+  const handleRemoveOption = (optionId: string) => {
+    setSelectedOptions(selectedOptions.filter((opt) => opt.id !== optionId));
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button>Ajouter un produit</Button>
       </DialogTrigger>
-      <DialogContent className="">
+      <DialogContent className="max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Ajouter un produit</DialogTitle>
         </DialogHeader>
@@ -201,6 +238,46 @@ export default function AddProduct() {
                 }
               }}
             />
+          </div>
+          <div className="grid w-full items-center gap-1.5">
+            <Label>Options du produit</Label>
+            <div className="space-y-2">
+              <Select onValueChange={handleAddOption}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Sélectionner une option" />
+                </SelectTrigger>
+                <SelectContent>
+                  {availableProducts
+                    .filter(
+                      (product) =>
+                        !selectedOptions.some((opt) => opt.id === product.id)
+                    )
+                    .map((product) => (
+                      <SelectItem key={product.id} value={product.id}>
+                        {product.name} - {product.price}€
+                      </SelectItem>
+                    ))}
+                </SelectContent>
+              </Select>
+
+              <div className="flex flex-wrap gap-2">
+                {selectedOptions.map((option) => (
+                  <div
+                    key={option.id}
+                    className="flex items-center gap-1 rounded-md bg-secondary px-2 py-1"
+                  >
+                    <span className="text-sm">{option.name}</span>
+                    <button
+                      type="button"
+                      onClick={() => handleRemoveOption(option.id)}
+                      className="ml-1 rounded-full hover:bg-destructive/20"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
           <Button type="submit" disabled={loading}>
             {loading ? "Chargement..." : "Ajouter"}

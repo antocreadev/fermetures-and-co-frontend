@@ -36,6 +36,13 @@ type Product = {
     name: string;
     imageUrl: string;
   };
+  options: {
+    option: {
+      id: string;
+      name: string;
+      price: number;
+    };
+  }[];
 };
 
 type SortConfig = {
@@ -58,6 +65,8 @@ export default function TableauProduits() {
     try {
       const response = await fetch("/api/products");
       const data = await response.json();
+
+      console.log(data);
 
       if (data.error) {
         throw new Error(data.error);
@@ -202,6 +211,7 @@ export default function TableauProduits() {
               </TableHead>
               <TableHead>RAL</TableHead>
               <TableHead>Bois</TableHead>
+              <TableHead>Options</TableHead>
               <TableHead>Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -259,6 +269,13 @@ export default function TableauProduits() {
                         <span>{product.bois.name}</span>
                       </div>
                     )}
+                  </TableCell>
+                  <TableCell>
+                    {product.options?.map((opt) => (
+                      <div key={opt.option.id} className="text-sm">
+                        {opt.option.name}
+                      </div>
+                    )) || null}
                   </TableCell>
                   <TableCell>
                     <div className="flex gap-2">

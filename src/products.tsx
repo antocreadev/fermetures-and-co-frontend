@@ -11,6 +11,24 @@ export const PRODUCTS: Product[] = [
     ],
     category: "portail-battant",
     hauteur: 140,
+    options: [
+      {
+        id: 101,
+        name: "KIT COULISS. TORQ 500 KG+2 PHOX 4F+SENSIVA 180°",
+        price: 450,
+        imageUrls: ["https://afca.fr/wp-content/uploads/2022/12/RRWTORK3.jpg"],
+        category: "option",
+        hauteur: 0,
+      },
+      {
+        id: 102,
+        name: "KIT VIDEO PLATINE SAILLIE+ ECRAN 7 »+ MODULE WI-FI",
+        price: 150,
+        imageUrls: ["https://afca.fr/wp-content/uploads/2023/06/CIGJOWIA.jpg"],
+        category: "option",
+        hauteur: 0,
+      },
+    ],
   },
   {
     id: 2,
