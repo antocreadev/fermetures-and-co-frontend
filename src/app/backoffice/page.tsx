@@ -1,8 +1,10 @@
+import AddMitEnAvant from "@/components/backoffice/add-mit-en-avant";
 import AddBois from "@/components/backoffice/addBois";
 import AddProduct from "@/components/backoffice/addProduct";
 import AddRAL from "@/components/backoffice/addRal";
 import TableauProduits from "@/components/backoffice/tableau";
 import TableauBois from "@/components/backoffice/tableau-bois";
+import TableauMitEnAvant from "@/components/backoffice/tableau-mit-en-avant";
 import TableauRAL from "@/components/backoffice/tableau-ral";
 
 export default function BackofficePage() {
@@ -30,6 +32,14 @@ export default function BackofficePage() {
           <AddBois />
         </div>
         <TableauBois />
+      </div>
+
+      <div className="space-y-4">
+        <h2 className="text-2xl font-bold">Produits mis en avant</h2>
+        <div className="flex gap-4">
+          <AddMitEnAvant />
+        </div>
+        <TableauMitEnAvant />
       </div>
     </div>
   );

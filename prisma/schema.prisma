@@ -37,19 +37,20 @@ model Address {
 }
 
 model Product {
-  id       String  @id @default(cuid())
-  name     String
-  price    Decimal @default(0.0)
-  idImage  String
-  category String
-  hauteur  Int
-  largeur  Int
-  images   Image[]
-  orders   Order[]
-  ralId    String?
-  ral      RAL?    @relation(fields: [ralId], references: [id])
-  boisId   String?
-  bois     Bois?   @relation(fields: [boisId], references: [id])
+  id         String      @id @default(cuid())
+  name       String
+  price      Decimal     @default(0.0)
+  idImage    String
+  category   String
+  hauteur    Int
+  largeur    Int
+  images     Image[]
+  orders     Order[]
+  ralId      String?
+  ral        RAL?        @relation(fields: [ralId], references: [id])
+  boisId     String?
+  bois       Bois?       @relation(fields: [boisId], references: [id])
+  mitEnAvant MitEnAvant?
 }
 
 model RAL {
@@ -88,6 +89,15 @@ model Admin {
   id        String   @id @default(cuid())
   email     String   @unique
   password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MitEnAvant {
+  id        String   @id @default(cuid())
+  productId String   @unique
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  ordre     Int      @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
