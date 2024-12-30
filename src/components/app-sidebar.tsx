@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import { ArrowUpFromLine, Package, Shield, UserRoundCheck } from "lucide-react";
 
 import {
   Sidebar,
@@ -14,29 +14,24 @@ import {
 // Menu items.
 const items = [
   {
-    title: "Home",
-    url: "#",
-    icon: Home,
+    title: "Produits",
+    url: "/backoffice/",
+    icon: Package,
   },
   {
-    title: "Inbox",
-    url: "#",
-    icon: Inbox,
+    title: "Commandes",
+    url: "/backoffice/orders",
+    icon: ArrowUpFromLine,
   },
   {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
+    title: "Clients",
+    url: "/backoffice/users",
+    icon: UserRoundCheck,
   },
   {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
+    title: "Administrateurs",
+    url: "/backoffice/admins",
+    icon: Shield,
   },
 ];
 

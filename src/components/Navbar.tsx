@@ -1,8 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { MenuIcon, ShoppingBagIcon, UserCircleIcon, XIcon } from "lucide-react";
-import GlobalSearchInput from "./GlobalSearchInput";
 import { Product } from "@/types/Product";
+import { MenuIcon, ShoppingBagIcon, UserCircleIcon, XIcon } from "lucide-react";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import GlobalSearchInput from "./GlobalSearchInput";
 
 // Composant pour le Menu Drawer
 interface MenuDrawerProps {
@@ -222,7 +223,9 @@ const Navbar = () => {
               <ShoppingBagIcon size={24} strokeWidth={1} />
             </button>
             <button className="p-1 rounded-full hover:bg-neutral-200">
-              <UserCircleIcon size={24} strokeWidth={1} />
+              <Link href="/account">
+                <UserCircleIcon size={24} strokeWidth={1} />
+              </Link>
             </button>
           </div>
         </div>

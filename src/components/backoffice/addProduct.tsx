@@ -39,6 +39,16 @@ export default function AddProduct() {
   const [rals, setRals] = useState<RAL[]>([]);
   const [bois, setBois] = useState<Bois[]>([]);
 
+  // Ajout des catégories disponibles
+  const categories = [
+    "portail-coulissant",
+    "portail-battant",
+    "portillon",
+    "accessoire-portail",
+    "motorisation-portail",
+    "pergola",
+  ];
+
   useEffect(() => {
     // Charger les RALs et Bois au montage du composant
     const fetchData = async () => {
@@ -126,7 +136,18 @@ export default function AddProduct() {
           </div>
           <div className="grid w-full items-center gap-1.5">
             <Label htmlFor="category">Catégorie</Label>
-            <Input required id="category" name="category" />
+            <Select name="category" required>
+              <SelectTrigger>
+                <SelectValue placeholder="Sélectionner une catégorie" />
+              </SelectTrigger>
+              <SelectContent>
+                {categories.map((category) => (
+                  <SelectItem key={category} value={category}>
+                    {category}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
           <div className="grid w-full items-center gap-1.5">
             <Label htmlFor="hauteur">Hauteur</Label>

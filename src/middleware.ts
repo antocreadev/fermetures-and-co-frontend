@@ -54,7 +54,7 @@ export async function middleware(request: NextRequest) {
       try {
         const secret = new TextEncoder().encode(process.env.JWT_SECRET);
         await jwtVerify(token, secret);
-        return NextResponse.redirect(new URL("/", request.url));
+        return NextResponse.redirect(new URL("/account", request.url));
       } catch (error) {
         // Token invalide, on laisse l'accès aux pages de connexion/inscription
       }
