@@ -9,41 +9,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import type { Product } from "@/types/Product";
 import { ArrowUpDown, Search, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import EditProduct from "./editProduct";
-
-type Product = {
-  id: string;
-  name: string;
-  price: number;
-  category: string;
-  hauteur: number;
-  largeur: number;
-  images: {
-    id: string;
-    url: string;
-  }[];
-  ral?: {
-    id: string;
-    name: string;
-    imageUrl: string;
-  };
-  bois?: {
-    id: string;
-    name: string;
-    imageUrl: string;
-  };
-  options: {
-    option: {
-      id: string;
-      name: string;
-      price: number;
-    };
-  }[];
-};
 
 type SortConfig = {
   key: keyof Product | "";
@@ -114,8 +85,19 @@ export default function TableauProduits() {
     setSortConfig({ key, direction });
 
     const sorted = [...filteredProducts].sort((a, b) => {
-      if (a[key] < b[key]) return direction === "asc" ? -1 : 1;
-      if (a[key] > b[key]) return direction === "asc" ? 1 : -1;
+      const valA = a[key];
+      const valB = b[key];
+
+      if (valA === undefined || valB === undefined) return 0;
+
+      if (typeof valA === "string" && typeof valB === "string") {
+        return direction === "asc"
+          ? valA.localeCompare(valB)
+          : valB.localeCompare(valA);
+      }
+
+      if (valA < valB) return direction === "asc" ? -1 : 1;
+      if (valA > valB) return direction === "asc" ? 1 : -1;
       return 0;
     });
 
@@ -226,7 +208,7 @@ export default function TableauProduits() {
               filteredProducts.map((product) => (
                 <TableRow key={product.id}>
                   <TableCell>
-                    {product.images[0] && (
+                    {product.images && product.images[0] && (
                       <Image
                         src={product.images[0].url}
                         alt={product.name}
@@ -272,8 +254,8 @@ export default function TableauProduits() {
                   </TableCell>
                   <TableCell>
                     {product.options?.map((opt) => (
-                      <div key={opt.option.id} className="text-sm">
-                        {opt.option.name}
+                      <div key={opt.option?.id} className="text-sm">
+                        {opt.option?.name}
                       </div>
                     )) || null}
                   </TableCell>

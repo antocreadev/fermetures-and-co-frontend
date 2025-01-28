@@ -59,6 +59,18 @@ type EditProductProps = {
   onUpdate: () => void;
 };
 
+type RAL = {
+  id: string;
+  name: string;
+  imageUrl: string;
+};
+
+type Bois = {
+  id: string;
+  name: string;
+  imageUrl: string;
+};
+
 export default function EditProduct({ product, onUpdate }: EditProductProps) {
   const [loading, setLoading] = useState(false);
   const [newImages, setNewImages] = useState<File[]>([]);

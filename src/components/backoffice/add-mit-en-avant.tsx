@@ -17,12 +17,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Product } from "@/types/Product";
 import { useEffect, useState } from "react";
-
-type Product = {
-  id: string;
-  name: string;
-};
 
 export default function AddMitEnAvant() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -105,7 +101,10 @@ export default function AddMitEnAvant() {
               </SelectTrigger>
               <SelectContent>
                 {products.map((product) => (
-                  <SelectItem key={product.id} value={product.id}>
+                  <SelectItem
+                    key={product.id.toString()}
+                    value={product.id.toString()}
+                  >
                     {product.name}
                   </SelectItem>
                 ))}

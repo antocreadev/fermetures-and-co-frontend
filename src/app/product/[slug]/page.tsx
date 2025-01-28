@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import PaymentMethods from "@/components/PaymentMethods";
 import TextHomepage from "@/components/TextHomepage";
 import { PRODUCTS } from "@/products";
+import { Product } from "@/types/Product";
 import { notFound, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
