@@ -1,34 +1,28 @@
 export type Product = {
-  id: string;
+  id: number;
   name: string;
   description?: string;
   price: number;
   imageUrls?: string[];
-  images: {
-    id: string;
+  images?: {
+    id: number;
     url: string;
-    productId: string;
+    productId: number;
   }[];
   category: string;
   hauteur: number;
   options?: Product[];
   mitEnAvant?: boolean;
-  ralId: string | null;
-  boisId: string | null;
+  ralId?: string | null;
+  boisId?: string | null;
   option?: {
-    id: string;
-    name: string;
-    price: number;
-  };
-  ral?: {
-    id: string;
-    name: string;
-    imageUrl: string;
+    Product: Product;
   };
   bois?: {
-    id: string;
+    id: number;
     name: string;
     imageUrl: string;
   };
   largeur: number;
+  couleur: string;
 };

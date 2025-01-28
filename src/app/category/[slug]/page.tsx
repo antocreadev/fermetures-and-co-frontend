@@ -2,15 +2,15 @@
 
 import CategoryNavList from "@/components/CategoryNavList";
 import Filters from "@/components/Filters";
-import Navbar from "@/components/Navbar";
-import ProductList from "@/components/ProductList";
-import { useEffect, useState } from "react";
-import { PRODUCTS } from "@/products";
-import { useParams } from "next/navigation";
-import { Product } from "@/types/Product";
-import PaymentMethods from "@/components/PaymentMethods";
-import TextHomepage from "@/components/TextHomepage";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import PaymentMethods from "@/components/PaymentMethods";
+import ProductList from "@/components/ProductList";
+import TextHomepage from "@/components/TextHomepage";
+import { PRODUCTS } from "@/products";
+import { Product } from "@/types/Product";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function CategoryIndex() {
   const params = useParams<{ slug: string }>();
@@ -24,6 +24,10 @@ export default function CategoryIndex() {
   const [maxPrice, setMaxPrice] = useState<number>(maxPricedProduct);
   const [selectedHeights, setSelectedHeights] = useState<number[]>([]);
   const [availableHeights, setAvailableHeights] = useState<number[]>([]);
+  const [selectedWidths, setSelectedWidths] = useState<number[]>([]);
+  const [availableWidths, setAvailableWidths] = useState<number[]>([]);
+  const [selectedColors, setSelectedColors] = useState<string[]>([]);
+  const [availableColors, setAvailableColors] = useState<string[]>([]);
 
   useEffect(() => {
     const categoryFilteredProducts = PRODUCTS.filter(
@@ -31,10 +35,18 @@ export default function CategoryIndex() {
     );
     const uniqueHeights = Array.from(
       new Set(categoryFilteredProducts.map((product) => product.hauteur))
-    );
+    ).sort((a, b) => a - b);
+    const uniqueWidths = Array.from(
+      new Set(categoryFilteredProducts.map((product) => product.largeur))
+    ).sort((a, b) => a - b);
+    const uniqueColors = Array.from(
+      new Set(categoryFilteredProducts.map((product) => product.couleur))
+    ).sort();
     setProducts(categoryFilteredProducts);
     setFilteredProducts(categoryFilteredProducts);
     setAvailableHeights(uniqueHeights);
+    setAvailableWidths(uniqueWidths);
+    setAvailableColors(uniqueColors);
   }, [params.slug]);
 
   useEffect(() => {
@@ -74,8 +86,29 @@ export default function CategoryIndex() {
       );
     }
 
+    // Si au moins une largeur est sélectionnée
+    if (selectedWidths.length > 0) {
+      filtered = filtered.filter((product) =>
+        selectedWidths.includes(product.largeur)
+      );
+    }
+
+    // Si au moins une couleur est sélectionnée
+    if (selectedColors.length > 0) {
+      filtered = filtered.filter((product) =>
+        selectedColors.includes(product.couleur)
+      );
+    }
+
     setFilteredProducts(filtered);
-  }, [products, minPrice, maxPrice, selectedHeights]); // On re-filtre dès que les valeurs changent
+  }, [
+    products,
+    minPrice,
+    maxPrice,
+    selectedHeights,
+    selectedWidths,
+    selectedColors,
+  ]);
 
   return (
     <main className="flex flex-col h-screen max-h-screen">
@@ -112,6 +145,12 @@ export default function CategoryIndex() {
                 selectedHeights={selectedHeights}
                 setSelectedHeights={setSelectedHeights}
                 availableHeights={availableHeights}
+                selectedWidths={selectedWidths}
+                setSelectedWidths={setSelectedWidths}
+                availableWidths={availableWidths}
+                selectedColors={selectedColors}
+                setSelectedColors={setSelectedColors}
+                availableColors={availableColors}
               />
             )}
           </div>
@@ -128,6 +167,12 @@ export default function CategoryIndex() {
               selectedHeights={selectedHeights}
               setSelectedHeights={setSelectedHeights}
               availableHeights={availableHeights}
+              selectedWidths={selectedWidths}
+              setSelectedWidths={setSelectedWidths}
+              availableWidths={availableWidths}
+              selectedColors={selectedColors}
+              setSelectedColors={setSelectedColors}
+              availableColors={availableColors}
             />
           </div>
         </section>

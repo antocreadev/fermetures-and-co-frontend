@@ -11,6 +11,12 @@ type FiltersProps = {
   selectedHeights: number[];
   setSelectedHeights: React.Dispatch<React.SetStateAction<number[]>>;
   availableHeights: number[];
+  selectedWidths: number[];
+  setSelectedWidths: React.Dispatch<React.SetStateAction<number[]>>;
+  availableWidths: number[];
+  selectedColors: string[];
+  setSelectedColors: React.Dispatch<React.SetStateAction<string[]>>;
+  availableColors: string[];
 };
 
 const Filters: React.FC<FiltersProps> = ({
@@ -23,6 +29,12 @@ const Filters: React.FC<FiltersProps> = ({
   selectedHeights,
   setSelectedHeights,
   availableHeights,
+  selectedWidths,
+  setSelectedWidths,
+  availableWidths,
+  selectedColors,
+  setSelectedColors,
+  availableColors,
 }) => {
   const handlePriceChange = (values: number[]) => {
     setMinPrice(values[0]);
@@ -39,6 +51,28 @@ const Filters: React.FC<FiltersProps> = ({
     } else {
       // Retire la hauteur si elle est décochée
       setSelectedHeights((prev) => prev.filter((h) => h !== height));
+    }
+  };
+
+  const handleWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const width = parseInt(e.target.id);
+    const isChecked = e.target.checked;
+
+    if (isChecked) {
+      setSelectedWidths((prev) => [...prev, width]);
+    } else {
+      setSelectedWidths((prev) => prev.filter((w) => w !== width));
+    }
+  };
+
+  const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const color = e.target.id;
+    const isChecked = e.target.checked;
+
+    if (isChecked) {
+      setSelectedColors((prev) => [...prev, color]);
+    } else {
+      setSelectedColors((prev) => prev.filter((c) => c !== color));
     }
   };
 
@@ -104,9 +138,54 @@ const Filters: React.FC<FiltersProps> = ({
                 type="checkbox"
                 className="accent-neutral-500"
                 id={height.toString()}
+                checked={selectedHeights.includes(height)}
                 onChange={handleHeightChange}
               />
               <label htmlFor={height.toString()}>{height}</label>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Separator */}
+      <hr className="my-4 border-neutral-300" />
+
+      {/* Filtre par largeur */}
+      <div>
+        <h3 className="font-semibold">Largeur (cm)</h3>
+        <ul className="space-y-1 mt-2">
+          {availableWidths.map((width) => (
+            <li key={width} className="space-x-2">
+              <input
+                type="checkbox"
+                className="accent-neutral-500"
+                id={width.toString()}
+                checked={selectedWidths.includes(width)}
+                onChange={handleWidthChange}
+              />
+              <label htmlFor={width.toString()}>{width}</label>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Separator */}
+      <hr className="my-4 border-neutral-300" />
+
+      {/* Filtre par couleur */}
+      <div>
+        <h3 className="font-semibold">Couleur</h3>
+        <ul className="space-y-1 mt-2">
+          {availableColors.map((color) => (
+            <li key={color} className="space-x-2">
+              <input
+                type="checkbox"
+                className="accent-neutral-500"
+                id={color}
+                checked={selectedColors.includes(color)}
+                onChange={handleColorChange}
+              />
+              <label htmlFor={color}>{color}</label>
             </li>
           ))}
         </ul>

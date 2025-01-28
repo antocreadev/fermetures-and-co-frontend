@@ -11,6 +11,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "portail-battant",
     hauteur: 140,
+    largeur: 300,
+    couleur: "gris",
     options: [
       {
         id: 101,
@@ -19,6 +21,8 @@ export const PRODUCTS: Product[] = [
         imageUrls: ["https://afca.fr/wp-content/uploads/2022/12/RRWTORK3.jpg"],
         category: "option",
         hauteur: 0,
+        largeur: 300,
+        couleur: "gris",
       },
       {
         id: 102,
@@ -27,6 +31,8 @@ export const PRODUCTS: Product[] = [
         imageUrls: ["https://afca.fr/wp-content/uploads/2023/06/CIGJOWIA.jpg"],
         category: "option",
         hauteur: 0,
+        largeur: 300,
+        couleur: "gris",
       },
     ],
   },
@@ -40,6 +46,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "portail-battant",
     hauteur: 140,
+    largeur: 300,
+    couleur: "gris",
   },
   {
     id: 3,
@@ -51,6 +59,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "portail-battant",
     hauteur: 120,
+    largeur: 320,
+    couleur: "noir",
   },
   {
     id: 4,
@@ -62,6 +72,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "portail-coulissant",
     hauteur: 140,
+    largeur: 320,
+    couleur: "anthracite",
   },
   {
     id: 5,
@@ -73,6 +85,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "portail-coulissant",
     hauteur: 160,
+    largeur: 320,
+    couleur: "blanc",
   },
   {
     id: 6,
@@ -84,6 +98,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "portillon",
     hauteur: 140,
+    largeur: 320,
+    couleur: "gris",
   },
   {
     id: 7,
@@ -95,6 +111,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "portillon",
     hauteur: 140,
+    largeur: 320,
+    couleur: "gris",
   },
   {
     id: 8,
@@ -106,6 +124,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "portillon",
     hauteur: 120,
+    largeur: 320,
+    couleur: "noir",
   },
   {
     id: 9,
@@ -117,6 +137,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "portillon",
     hauteur: 140,
+    largeur: 320,
+    couleur: "anthracite",
   },
   {
     id: 10,
@@ -128,6 +150,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "portillon",
     hauteur: 150,
+    largeur: 320,
+    couleur: "blanc",
   },
   {
     id: 11,
@@ -139,6 +163,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "pergola",
     hauteur: 2650,
+    largeur: 320,
+    couleur: "blanc",
   },
   {
     id: 12,
@@ -150,6 +176,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "pergola",
     hauteur: 2650,
+    largeur: 320,
+    couleur: "blanc",
   },
   {
     id: 13,
@@ -161,6 +189,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "pergola",
     hauteur: 2650,
+    largeur: 320,
+    couleur: "blanc",
   },
   {
     id: 14,
@@ -172,6 +202,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "pergola",
     hauteur: 2650,
+    largeur: 320,
+    couleur: "blanc",
   },
   {
     id: 15,
@@ -183,6 +215,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "pergola",
     hauteur: 2650,
+    largeur: 320,
+    couleur: "blanc",
   },
   {
     id: 16,
@@ -194,6 +228,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "pergola",
     hauteur: 2650,
+    largeur: 320,
+    couleur: "blanc",
   },
   {
     id: 17,
@@ -205,6 +241,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "pergola",
     hauteur: 2650,
+    largeur: 320,
+    couleur: "blanc",
   },
   {
     id: 18,
@@ -216,6 +254,8 @@ export const PRODUCTS: Product[] = [
     ],
     category: "pergola",
     hauteur: 2650,
+    largeur: 320,
+    couleur: "blanc",
   },
   {
     id: 19,
@@ -228,6 +268,8 @@ export const PRODUCTS: Product[] = [
 
     category: "pergola",
     hauteur: 2650,
+    largeur: 320,
+    couleur: "gris",
   },
   {
     id: 20,
@@ -239,5 +281,7 @@ export const PRODUCTS: Product[] = [
     ],
     category: "pergola",
     hauteur: 2650,
+    largeur: 320,
+    couleur: "gris",
   },
 ];
