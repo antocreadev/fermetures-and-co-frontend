@@ -9,7 +9,7 @@ export default function Index() {
       <CategoryNavList />
       <div className="max-w-4xl mx-auto px-4 py-8  text-black">
         <h1 className="text-3xl font-bold mb-8 text-center">
-          Nos Engagements chez Fenêtres and Co
+          Nos Engagements chez Fermetures & Co
         </h1>
 
         <div className="space-y-8">
@@ -18,7 +18,7 @@ export default function Index() {
               Engagement n°1 : Une qualité irréprochable
             </h2>
             <p className="mb-4">
-              Chez <span className="font-bold">Fenêtres and Co</span>, nous
+              Chez <span className="font-bold">Fermetures & Co</span>, nous
               sélectionnons nos produits avec soin en collaboration avec nos
               partenaires fabricants. La qualité est contrôlée à chaque étape :
             </p>
@@ -40,14 +40,14 @@ export default function Index() {
             </h2>
             <p className="mb-4">
               Faites vos achats en toute sérénité sur{" "}
-              <span className="font-bold">fenêtres-and-co.fr</span> grâce à nos
+              <span className="font-bold">fermetures-et-co.fr</span> grâce à nos
               protocoles de sécurité avancés :
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Protection de vos données via une connexion cryptée SSL.</li>
               <li>
                 Gestion des paiements par un prestataire reconnu, sans jamais
-                transmettre vos informations bancaires à Fenêtres and Co.
+                transmettre vos informations bancaires à Fermetures & Co.
               </li>
               <li>
                 Débit transparent au moment de votre commande ou précommande.
@@ -81,7 +81,7 @@ export default function Index() {
               Engagement n°4 : Respect de votre confidentialité
             </h2>
             <p>
-              Chez <span className="font-bold">Fenêtres and Co</span>, votre vie
+              Chez <span className="font-bold">Fermetures & Co</span>, votre vie
               privée est une priorité. Nous traitons vos données personnelles
               avec la plus grande rigueur. Découvrez tous les détails dans notre
               Politique de confidentialité.
@@ -94,7 +94,7 @@ export default function Index() {
             </h2>
             <p className="mb-4">
               Commandez en quelques clics sur{" "}
-              <span className="font-bold">fenêtres-and-co.fr</span> :
+              <span className="font-bold">fermetures-et-co.fr</span> :
             </p>
             <ol className="list-decimal pl-6 space-y-2 mb-4">
               <li>Ajoutez vos produits au panier.</li>
@@ -110,7 +110,7 @@ export default function Index() {
           </section>
 
           <p className="text-center font-bold mt-8">
-            <span className="font-bold">Fenêtres and Co</span>, des engagements
+            <span className="font-bold">Fermetures & Co</span>, des engagements
             clairs pour une expérience client unique et satisfaisante.
           </p>
         </div>

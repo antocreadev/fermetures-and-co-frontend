@@ -1,5 +1,5 @@
 "use client";
-import { Truck, CreditCard, Gift, Package } from "lucide-react";
+import { CreditCard, Gift, Package, Truck } from "lucide-react";
 
 const Features = () => {
   const features = [
@@ -10,7 +10,7 @@ const Features = () => {
       neutral-500"
         />
       ),
-      title: "Livraison 2/5 jours",
+      title: "Livraison rapide",
     },
     {
       icon: (

@@ -24,7 +24,7 @@ export default function Index() {
 
           <section>
             <h2 className="text-2xl font-bold mb-4">
-              Quels sont les délais de livraison chez Fenêtres and Co ?
+              Quels sont les délais de livraison chez Fermetures and Co ?
             </h2>
             <p className="mb-4">
               Nous mettons tout en œuvre pour que vos commandes arrivent
@@ -57,7 +57,7 @@ export default function Index() {
               pour ceux en attente de réapprovisionnement.
             </p>
             <p>
-              Avec <span className="font-bold">Fenêtres and Co</span>, la
+              Avec <span className="font-bold">Fermetures and Co</span>, la
               livraison est toujours
               <span className="font-bold"> offerte</span>, quelle que soit la
               configuration, pour un maximum de satisfaction.
@@ -66,11 +66,11 @@ export default function Index() {
 
           <section>
             <h2 className="text-2xl font-bold mb-4">
-              Vos données personnelles sont en sécurité avec Fenêtres and Co
+              Vos données personnelles sont en sécurité avec Fermetures and Co
             </h2>
             <p className="mb-4">
-              Chez <span className="font-bold">Fenêtres and Co</span>, nous nous
-              engageons à protéger vos données personnelles. Elles sont
+              Chez <span className="font-bold">Fermetures and Co</span>, nous
+              nous engageons à protéger vos données personnelles. Elles sont
               utilisées uniquement pour assurer une livraison rapide et
               sécurisée de vos produits.
             </p>
@@ -90,7 +90,7 @@ export default function Index() {
               </li>
             </ul>
             <p>
-              Avec <span className="font-bold">Fenêtres and Co</span>, vos
+              Avec <span className="font-bold">Fermetures and Co</span>, vos
               informations sont entre de bonnes mains, pour une expérience
               d&apos;achat en toute sérénité.
             </p>
@@ -98,11 +98,11 @@ export default function Index() {
 
           <section>
             <h2 className="text-2xl font-bold mb-4">
-              Créez votre compte utilisateur facilement sur Fenêtres and Co
+              Créez votre compte utilisateur facilement sur Fermetures and Co
             </h2>
             <p className="mb-4">
               Rien de plus simple pour profiter pleinement des services de{" "}
-              <span className="font-bold">Fenêtres and Co</span> :
+              <span className="font-bold">Fermetures and Co</span> :
             </p>
             <ol className="list-decimal pl-6 space-y-2 mb-4">
               <li>
@@ -131,7 +131,7 @@ export default function Index() {
 
           <section>
             <h2 className="text-2xl font-bold mb-4">
-              Modifier vos informations personnelles sur Fenêtres and Co
+              Modifier vos informations personnelles sur Fermetures and Co
             </h2>
             <p className="mb-4">
               Rien de plus simple pour mettre à jour vos informations
@@ -158,14 +158,14 @@ export default function Index() {
               rapidement.
             </p>
             <p>
-              Avec <span className="font-bold">Fenêtres and Co</span>, votre
+              Avec <span className="font-bold">Fermetures and Co</span>, votre
               compte est toujours à jour, en toute simplicité !
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold mb-4">
-              Les produits Fenêtres and Co peuvent-ils être ajustés ?
+              Les produits Fermetures and Co peuvent-ils être ajustés ?
             </h2>
             <p className="mb-4">
               Pour une installation parfaitement adaptée à votre espace, la
@@ -229,9 +229,9 @@ export default function Index() {
               Quelle motorisation choisir pour mon portail ?
             </h2>
             <p className="mb-4">
-              Sur <span className="font-bold">Fenêtres and Co</span>, nous vous
-              proposons des motorisations adaptées à chaque type de portail,
-              qu&apos;il soit coulissant ou battant.
+              Sur <span className="font-bold">Fermetures and Co</span>, nous
+              vous proposons des motorisations adaptées à chaque type de
+              portail, qu&apos;il soit coulissant ou battant.
             </p>
 
             <h3 className="text-xl font-bold mb-2">
@@ -316,7 +316,7 @@ export default function Index() {
 
           <section>
             <h2 className="text-2xl font-bold mb-4">
-              Quels sont les pays livrés par Fenêtres and Co ?
+              Quels sont les pays livrés par Fermetures and Co ?
             </h2>
             <p className="mb-4">
               Nous proposons la livraison dans de nombreux pays européens,
@@ -342,7 +342,7 @@ export default function Index() {
               créer votre compte sur le site correspondant au pays où vous
               souhaitez être livré. Par exemple, si vous résidez en France et
               souhaitez être livré en France, il est indispensable de créer un
-              compte sur fenêtres-and-co.fr. Sans cela, vous ne pourrez pas
+              compte sur Fermetures-and-co.fr. Sans cela, vous ne pourrez pas
               bénéficier de la livraison dans ce pays.
             </p>
             <p>Pour plus de détails, consultez nos CGV.</p>
@@ -350,11 +350,11 @@ export default function Index() {
 
           <section>
             <h2 className="text-2xl font-bold mb-4">
-              Fenêtres and Co, qui sommes-nous ?
+              Fermetures and Co, qui sommes-nous ?
             </h2>
             <p className="mb-4">
               Vous souhaitez en savoir plus sur{" "}
-              <span className="font-bold">Fenêtres and Co</span> ? Nous vous
+              <span className="font-bold">Fermetures and Co</span> ? Nous vous
               invitons à consulter les pages suivantes pour découvrir qui nous
               sommes et ce que nous vous proposons :
             </p>
@@ -367,7 +367,7 @@ export default function Index() {
               <span className="font-bold">
                 Vous avez une question urgente ?
               </span>{" "}
-              Chez <span className="font-bold">Fenêtres and Co</span>, nous
+              Chez <span className="font-bold">Fermetures and Co</span>, nous
               avons fait le choix de ne pas proposer de numéro de téléphone
               surtaxé, afin de vous offrir une réponse plus claire et détaillée
               par écrit. Nous mettons toutes les informations nécessaires à
@@ -382,7 +382,7 @@ export default function Index() {
             <p className="mb-4">
               <span className="font-bold">Où trouver nos produits ?</span> Nos
               produits sont exclusivement disponibles en ligne, sur
-              fenêtres-and-co.fr. Nous n&apos;avons pas de showroom ou de
+              Fermetures-and-co.fr. Nous n&apos;avons pas de showroom ou de
               magasin physique. Pour vous aider dans votre choix, nous mettons à
               votre disposition des informations détaillées sur chaque fiche
               produit et dans notre FAQ. Vous pouvez également consulter les
@@ -461,9 +461,9 @@ export default function Index() {
                 <p className="font-bold mb-2">Erreur de site de connexion :</p>
                 <p>
                   Il est possible que vous essayiez de vous connecter sur le
-                  mauvais site Fenêtres and Co. Par exemple, si vous avez créé
-                  un compte sur fenêtres-and-co.fr, vous ne pourrez vous
-                  connecter que sur fenêtres-and-co.fr. Veillez donc à vous
+                  mauvais site Fermetures and Co. Par exemple, si vous avez créé
+                  un compte sur Fermetures-and-co.fr, vous ne pourrez vous
+                  connecter que sur Fermetures-and-co.fr. Veillez donc à vous
                   connecter sur le bon site correspondant à votre inscription.
                 </p>
                 <p className="mt-2">
@@ -471,7 +471,7 @@ export default function Index() {
                   essentiel de créer votre compte sur le site du pays où vous
                   souhaitez être livré. Par exemple, si vous habitez en France
                   et souhaitez être livré en France, créez un compte sur
-                  fenêtres-and-co.fr. Si ce n&apos;est pas le cas, vous ne
+                  Fermetures-and-co.fr. Si ce n&apos;est pas le cas, vous ne
                   pourrez pas recevoir votre commande dans ce pays.
                 </p>
               </li>
@@ -492,13 +492,13 @@ export default function Index() {
           <section>
             <h2 className="text-2xl font-bold mb-4">
               Existe-t-il des magasins ou des showrooms pour voir les produits
-              de Fenêtres and Co ?
+              de Fermetures and Co ?
             </h2>
             <p className="mb-4">
               Nos produits sont exclusivement disponibles en ligne sur
-              fenêtres-and-co.fr. Nous n&apos;avons pas de showroom physique ni
-              de magasin où vous pourriez voir nos produits en personne ou les
-              acheter sur place.
+              Fermetures-and-co.fr. Nous n&apos;avons pas de showroom physique
+              ni de magasin où vous pourriez voir nos produits en personne ou
+              les acheter sur place.
             </p>
             <p className="mb-4">
               Nous mettons tout en œuvre pour vous fournir toutes les
@@ -536,7 +536,7 @@ export default function Index() {
 
           <section>
             <h2 className="text-2xl font-bold mb-4">
-              Quel est le poids des produits Fenêtres and Co ?
+              Quel est le poids des produits Fermetures and Co ?
             </h2>
             <p className="mb-4">
               Le poids de chaque produit, ainsi que celui des colis associés,
@@ -558,7 +558,7 @@ export default function Index() {
 
           <section>
             <h2 className="text-2xl font-bold mb-4">
-              PayPal, un moyen de paiement sécurisé avec Fenêtres and Co !
+              PayPal, un moyen de paiement sécurisé avec Fermetures and Co !
             </h2>
             <p className="mb-4">
               L&apos;utilisation de PayPal est entièrement gratuite. Il vous
@@ -570,10 +570,11 @@ export default function Index() {
             </p>
             <p className="mb-4">
               Avec PayPal, vos informations bancaires ne sont jamais partagées
-              avec Fenêtres and Co : vous effectuez votre paiement sans avoir à
-              communiquer vos coordonnées bancaires directement sur notre site.
-              PayPal crypte et sécurise vos données et sert d&apos;intermédiaire
-              pour garantir la sécurité de toutes vos transactions.
+              avec Fermetures and Co : vous effectuez votre paiement sans avoir
+              à communiquer vos coordonnées bancaires directement sur notre
+              site. PayPal crypte et sécurise vos données et sert
+              d&apos;intermédiaire pour garantir la sécurité de toutes vos
+              transactions.
             </p>
             <p>
               De plus, PayPal propose, à sa discrétion, une option de paiement
@@ -587,7 +588,7 @@ export default function Index() {
               Quels sont les coloris disponibles ?
             </h2>
             <p>
-              Actuellement, <span className="font-bold">Fenêtres and Co</span>{" "}
+              Actuellement, <span className="font-bold">Fermetures and Co</span>{" "}
               vous propose uniquement le coloris gris anthracite (RAL 7016). Le
               coloris blanc mat sablé arrivera très prochainement sur certains
               de nos modèles. À l&apos;avenir, nous envisagerons de proposer
@@ -600,13 +601,13 @@ export default function Index() {
 
           <section>
             <h2 className="text-2xl font-bold mb-4">
-              Existe-t-il un service de montage pour les produits Fenêtres and
+              Existe-t-il un service de montage pour les produits Fermetures and
               Co ?
             </h2>
             <p className="mb-4">
               Actuellement, nous proposons nos produits uniquement avec le
               service de livraison. Nous ne proposons pas de solution de montage
-              à ce jour. Cependant, nos fenêtres sont simples à monter et
+              à ce jour. Cependant, nos Fermetures sont simples à monter et
               peuvent être installées rapidement.
             </p>
             <p className="mb-4">
@@ -615,7 +616,7 @@ export default function Index() {
               d&apos;entrepreneurs spécialisés dans le montage de produits
               similaires aux nôtres. Il vous est donc possible de vérifier si
               des artisans sont disponibles dans votre région pour vous aider à
-              installer vos fenêtres.
+              installer vos Fermetures.
             </p>
             <p>
               Vous trouverez ces informations directement sur chaque fiche
@@ -630,8 +631,8 @@ export default function Index() {
 
           <section>
             <h2 className="text-2xl font-bold mb-4">
-              Quelles sont les garanties associées aux produits Fenêtres and Co
-              ?
+              Quelles sont les garanties associées aux produits Fermetures and
+              Co ?
             </h2>
             <p>
               Tous nos produits bénéficient d&apos;une garantie commerciale de 2
@@ -644,7 +645,7 @@ export default function Index() {
               Précommande, qu&apos;est-ce que c&apos;est ?
             </h2>
             <p className="mb-4">
-              <span className="font-bold">Fenêtres and Co</span> met un point
+              <span className="font-bold">Fermetures and Co</span> met un point
               d&apos;honneur à ne proposer à l&apos;achat que des produits en
               stock. Le système de réservation prioritaire vous permet de
               précommander de manière définitive les produits qui vous
@@ -655,7 +656,7 @@ export default function Index() {
               Concrètement, il vous suffit de sélectionner les produits désirés
               et de les ajouter à votre panier. Précommander n&apos;a jamais été
               aussi simple avec{" "}
-              <span className="font-bold">Fenêtres and Co</span>.
+              <span className="font-bold">Fermetures and Co</span>.
             </p>
             <p className="mb-4">
               Pour plus d&apos;informations, consultez nos CGV &gt; Produits
@@ -675,7 +676,7 @@ export default function Index() {
               <li>Vous serez redirigé vers une page de connexion.</li>
               <li>
                 Pour confirmer votre précommande, vous devez être connecté à
-                votre compte Fenêtres and Co.
+                votre compte Fermetures and Co.
               </li>
               <li>
                 Si vous avez déjà un compte, entrez votre adresse email et votre
@@ -698,7 +699,7 @@ export default function Index() {
 
           <section>
             <h2 className="text-2xl font-bold mb-4">
-              Quel est le sens d&apos;ouverture des produits Fenêtres and Co ?
+              Quel est le sens d&apos;ouverture des produits Fermetures and Co ?
             </h2>
             <p className="mb-4">
               Le sens d&apos;ouverture de nos produits est défini pour des
@@ -769,7 +770,7 @@ export default function Index() {
 
           <section>
             <h2 className="text-2xl font-bold mb-4">
-              Quelles sont les mesures exactes des produits Fenêtres and Co ?
+              Quelles sont les mesures exactes des produits Fermetures and Co ?
             </h2>
             <p>
               Les mesures exactes de nos produits sont disponibles directement
@@ -799,8 +800,8 @@ export default function Index() {
 
           <section>
             <h2 className="text-2xl font-bold mb-4">
-              Comment utiliser le système d&apos;alerte produit de Fenêtres and
-              Co ?
+              Comment utiliser le système d&apos;alerte produit de Fermetures
+              and Co ?
             </h2>
             <p className="mb-4">
               Si un produit est indisponible, vous pouvez vous inscrire pour
@@ -834,7 +835,7 @@ export default function Index() {
               Nos produits sont fabriqués à l&apos;échelle industrielle et
               livrés en kit à assembler. Nous ne proposons pas de sur-mesure
               strictement dit, mais nos produits peuvent être adaptés en
-              fonction de vos besoins. Nos fenêtres peuvent être recoupées en
+              fonction de vos besoins. Nos Fermetures peuvent être recoupées en
               largeur, mais pas en hauteur. Les dimensions standard sont :
               115/120 cm, 140 cm, 160 cm et 180 cm.
             </p>
