@@ -10,7 +10,7 @@ const Showcase: React.FC<ShowcaseProps> = ({ featuredProduct, products }) => {
   return (
     <section className="flex flex-col justify-center p-5 bg-neutral-200">
       <h1 className="header text-center mb-4">
-        FERMETURES & CO : LE SPÉCIALISTE DES PORTAILS ET PERGOLAS EN CORSE
+        FERMETURES & CO : LE SPÉCIALISTE DES PORTAILS ET PERGOLAS
       </h1>
 
       {/* Container responsive */}
