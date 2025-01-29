@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
     <footer className=" pt py-8 bg-neutral-700 text-neutral-100">
-      <div className="-4 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="-4 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* BESOIN D'AIDE */}
         <div>
           <h3 className="text-lg font-semibold mb-4 uppercase">
@@ -9,18 +9,13 @@ export const Footer = () => {
           </h3>
           <ul className="space-y-2">
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/faq" className="hover:underline">
                 Nous contacter
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/faq" className="hover:underline">
                 FAQ
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Suivi de commande
               </a>
             </li>
           </ul>
@@ -32,18 +27,13 @@ export const Footer = () => {
           </h3>
           <ul className="space-y-2">
             <li>
-              <a href="/faq" className="hover:underline">
-                FAQ
-              </a>
-            </li>
-            <li>
               <a href="/engagements" className="hover:underline">
                 Nos engagements
               </a>
             </li>
           </ul>
         </div>
-        <div>
+        {/* <div>
           <h3 className="text-lg font-semibold mb-4 uppercase">
             INTERNATIONAL
           </h3>
@@ -53,7 +43,7 @@ export const Footer = () => {
             Finlande, Suède, République Tchèque, Grèce, Croatie, Hongrie,
             Lituanie, Lettonie, Roumanie, Slovénie, Slovaquie
           </p>
-        </div>
+        </div> */}
       </div>
 
       <div className="mt-8 pt-4 text-center text-sm ">
