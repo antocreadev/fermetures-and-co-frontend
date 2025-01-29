@@ -32,12 +32,12 @@ export const Footer = () => {
           </h3>
           <ul className="space-y-2">
             <li>
-              <a href="#" className="hover:underline">
-                Qui sommes-nous ?
+              <a href="/faq" className="hover:underline">
+                FAQ
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/engagements" className="hover:underline">
                 Nos engagements
               </a>
             </li>
