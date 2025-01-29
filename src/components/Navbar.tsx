@@ -35,6 +35,12 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ isOpen, onClose }) => {
         {/* portail coulissant, portail battant, portillon, accessoire portail, motorisation portail, pergolas */}
         <ul className="flex flex-col space-y-4">
           <li className="text-neutral-700 hover:text-neutral-900 uppercase text-xl font-semibold border-b-2 pb-2">
+            <a href="/category/porte-sectionnelle">Porte sectionnelle</a>
+          </li>
+          <li className="text-neutral-700 hover:text-neutral-900 uppercase text-xl font-semibold border-b-2 pb-2">
+            <a href="/category/rideau-metallique">Rideau métallique</a>
+          </li>
+          <li className="text-neutral-700 hover:text-neutral-900 uppercase text-xl font-semibold border-b-2 pb-2">
             <a href="/category/portail-coulissant">Portail coulissant</a>
           </li>
           <li className="text-neutral-700 hover:text-neutral-900 uppercase text-xl font-semibold border-b-2 pb-2">
@@ -43,9 +49,9 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ isOpen, onClose }) => {
           <li className="text-neutral-700 hover:text-neutral-900 uppercase text-xl font-semibold border-b-2 pb-2">
             <a href="/category/portillon">Portillon</a>
           </li>
-          <li className="text-neutral-700 hover:text-neutral-900 uppercase text-xl font-semibold border-b-2 pb-2">
+          {/* <li className="text-neutral-700 hover:text-neutral-900 uppercase text-xl font-semibold border-b-2 pb-2">
             <a href="/category/accessoire-portail">Accessoire portail</a>
-          </li>
+          </li> */}
           <li className="text-neutral-700 hover:text-neutral-900 uppercase text-xl font-semibold border-b-2 pb-2">
             <a href="/category/motorisation-portail">Motorisation portail</a>
           </li>

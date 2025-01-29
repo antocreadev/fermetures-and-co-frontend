@@ -24,6 +24,16 @@ const CategoryNavList = () => {
     <nav className="border-t md:border-b border-neutral-700 p-2 bg-transparent md:bg-neutral-700 text-neutral-50 font-semibold">
       <ul className="hidden md:flex flex-row justify-center">
         <CategoryNavItem
+          category={{ slug: "porte-sectionnelle", name: "Porte sectionnelle" }}
+        />
+        <div className="h-7 my-auto border-r border-neutral-100" />
+
+        <CategoryNavItem
+          category={{ slug: "rideau-metallique", name: "Rideau métallique" }}
+        />
+        <div className="h-7 my-auto border-r border-neutral-100" />
+
+        <CategoryNavItem
           category={{ slug: "portail-coulissant", name: "Portail coulissant" }}
         />
         <div className="h-7 my-auto border-r border-neutral-100" />
@@ -32,10 +42,10 @@ const CategoryNavList = () => {
         />
         <div className="h-7 my-auto border-r border-neutral-100" />
         <CategoryNavItem category={{ slug: "portillon", name: "portillon" }} />
-        <div className="h-7 my-auto border-r border-neutral-100" />
+        {/* <div className="h-7 my-auto border-r border-neutral-100" />
         <CategoryNavItem
           category={{ slug: "accessoire-portail", name: "accessoire portail" }}
-        />
+        /> */}
         <div className="h-7 my-auto border-r border-neutral-100" />
         <CategoryNavItem
           category={{
