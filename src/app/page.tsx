@@ -1,3 +1,5 @@
+"use client";
+
 import BestSales from "@/components/BestSales";
 import CategoryNavList from "@/components/CategoryNavList";
 import Features from "@/components/Features";
@@ -6,12 +8,22 @@ import Navbar from "@/components/Navbar";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import PaymentMethods from "@/components/PaymentMethods";
 import Reviews from "@/components/Reviews";
-import TextHomepage from "@/components/TextHomepage";
-
 import Showcase from "@/components/Showcase";
+import TextHomepage from "@/components/TextHomepage";
 import { PRODUCTS } from "@/products";
+import { useEffect, useState } from "react";
 
 export default function Index() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null; // ou un loader/skeleton
+  }
+
   return (
     <main className="flex flex-col h-screen max-h-screen">
       <Navbar />
@@ -23,7 +35,6 @@ export default function Index() {
       <PaymentMethods />
       <Reviews />
       <NewsletterSignup />
-
       <Footer />
     </main>
   );
