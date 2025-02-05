@@ -18,11 +18,12 @@ export default function Index() {
       <CategoryNavList />
       <Showcase featuredProduct={PRODUCTS[0]} products={PRODUCTS.slice(0, 6)} />
       <BestSales />
-      <NewsletterSignup />
+      <TextHomepage />
       <Features />
       <PaymentMethods />
       <Reviews />
-      <TextHomepage />
+      <NewsletterSignup />
+
       <Footer />
     </main>
   );

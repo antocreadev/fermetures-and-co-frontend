@@ -1,31 +1,58 @@
+"use client";
 import CategoryNavList from "@/components/CategoryNavList";
+import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import SearchBar from "@/components/SearchBar";
+import { useEffect, useState } from "react";
 
 export default function Index() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll("details"));
+    if (!searchQuery.trim()) {
+      sections.forEach((section) => {
+        section.style.display = "block";
+      });
+      return;
+    }
+
+    const query = searchQuery.toLowerCase();
+    sections.forEach((section) => {
+      const question =
+        section.querySelector("summary")?.textContent?.toLowerCase() || "";
+      const content = section.textContent?.toLowerCase() || "";
+
+      if (question.includes(query) || content.includes(query)) {
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+    });
+  }, [searchQuery]);
+
   return (
-    <main className="flex flex-col h-screen max-h-screen">
+    <main className="flex flex-col min-h-screen">
       <Navbar />
       <CategoryNavList />
-      <div className="max-w-4xl mx-auto px-4 py-12  text-black">
+      <div className="flex-grow max-w-4xl mx-auto px-4 py-12 text-black">
         <h1 className="text-3xl font-bold text-center mb-12">FAQ</h1>
 
-        <div className="space-y-12">
-          <section>
-            <h2 className="text-2xl font-bold mb-4">PASSER UNE COMMANDE</h2>
-            <p className="mb-4">
+        <SearchBar value={searchQuery} onChange={setSearchQuery} />
+
+        <div className="flex flex-col items-center justify-center gap-2 mb-8">
+          <FAQSection question="Passer une commande">
+            <p>
               Pour toute question concernant vos commandes passées, nous vous
               invitons à nous contacter via notre
               <span className="font-bold"> formulaire de contact</span>. Nous
               serons heureux de vous assister et de répondre à vos
               préoccupations.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Quels sont les délais de livraison chez Fermetures and Co ?
-            </h2>
+          <FAQSection question="Quels sont les délais de livraison chez Fermetures and Co ?">
             <p className="mb-4">
               Nous mettons tout en œuvre pour que vos commandes arrivent
               rapidement et en parfait état :
@@ -62,12 +89,9 @@ export default function Index() {
               <span className="font-bold"> offerte</span>, quelle que soit la
               configuration, pour un maximum de satisfaction.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Vos données personnelles sont en sécurité avec Fermetures and Co
-            </h2>
+          <FAQSection question="Vos données personnelles sont en sécurité avec Fermetures and Co">
             <p className="mb-4">
               Chez <span className="font-bold">Fermetures and Co</span>, nous
               nous engageons à protéger vos données personnelles. Elles sont
@@ -94,12 +118,9 @@ export default function Index() {
               informations sont entre de bonnes mains, pour une expérience
               d&apos;achat en toute sérénité.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Créez votre compte utilisateur facilement sur Fermetures and Co
-            </h2>
+          <FAQSection question="Créez votre compte utilisateur facilement sur Fermetures and Co">
             <p className="mb-4">
               Rien de plus simple pour profiter pleinement des services de{" "}
               <span className="font-bold">Fermetures and Co</span> :
@@ -127,12 +148,9 @@ export default function Index() {
               commencer à explorer nos produits et passer commande en toute
               simplicité !
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Modifier vos informations personnelles sur Fermetures and Co
-            </h2>
+          <FAQSection question="Modifier vos informations personnelles sur Fermetures and Co">
             <p className="mb-4">
               Rien de plus simple pour mettre à jour vos informations
               personnelles :
@@ -161,12 +179,9 @@ export default function Index() {
               Avec <span className="font-bold">Fermetures and Co</span>, votre
               compte est toujours à jour, en toute simplicité !
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Les produits Fermetures and Co peuvent-ils être ajustés ?
-            </h2>
+          <FAQSection question="Les produits Fermetures and Co peuvent-ils être ajustés ?">
             <p className="mb-4">
               Pour une installation parfaitement adaptée à votre espace, la
               plupart de nos portails battants, portillons et clôtures peuvent
@@ -193,12 +208,9 @@ export default function Index() {
               💡 <span className="font-bold">Note importante :</span> Toute
               modification est réalisée sous votre entière responsabilité.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              J&apos;ai oublié mon mot de passe, que faire ?
-            </h2>
+          <FAQSection question="J'ai oublié mon mot de passe, que faire ?">
             <p className="mb-4">
               Pas de panique, voici la procédure à suivre :
             </p>
@@ -222,12 +234,9 @@ export default function Index() {
                 reconnecter à votre compte avec vos nouvelles informations.
               </li>
             </ol>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Quelle motorisation choisir pour mon portail ?
-            </h2>
+          <FAQSection question="Quelle motorisation choisir pour mon portail ?">
             <p className="mb-4">
               Sur <span className="font-bold">Fermetures and Co</span>, nous
               vous proposons des motorisations adaptées à chaque type de
@@ -312,12 +321,9 @@ export default function Index() {
               produits, avec leurs caractéristiques techniques et notices de
               montage.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Quels sont les pays livrés par Fermetures and Co ?
-            </h2>
+          <FAQSection question="Quels sont les pays livrés par Fermetures and Co ?">
             <p className="mb-4">
               Nous proposons la livraison dans de nombreux pays européens,
               notamment :
@@ -346,12 +352,9 @@ export default function Index() {
               bénéficier de la livraison dans ce pays.
             </p>
             <p>Pour plus de détails, consultez nos CGV.</p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Fermetures and Co, qui sommes-nous ?
-            </h2>
+          <FAQSection question="Fermetures and Co, qui sommes-nous ?">
             <p className="mb-4">
               Vous souhaitez en savoir plus sur{" "}
               <span className="font-bold">Fermetures and Co</span> ? Nous vous
@@ -395,13 +398,12 @@ export default function Index() {
               clients&quot; pour découvrir les installations de nos
               utilisateurs.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Quelle est la différence entre l&apos;adresse de livraison et
-              l&apos;adresse de facturation ?
-            </h2>
+          <FAQSection
+            question="Quelle est la différence entre l'adresse de livraison et
+              l'adresse de facturation ?"
+          >
             <div className="mb-4">
               <p className="mb-2">
                 <span className="font-bold">Adresse de facturation :</span> Il
@@ -446,12 +448,9 @@ export default function Index() {
               Vous avez la possibilité de renseigner plusieurs adresses de
               facturation et de livraison selon vos besoins.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              J&apos;ai des problèmes pour me connecter, que faire ?
-            </h2>
+          <FAQSection question="J'ai des problèmes pour me connecter, que faire ?">
             <p className="mb-4">
               Les difficultés de connexion peuvent être dues à plusieurs raisons
               :
@@ -487,13 +486,12 @@ export default function Index() {
                 </p>
               </li>
             </ol>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Existe-t-il des magasins ou des showrooms pour voir les produits
-              de Fermetures and Co ?
-            </h2>
+          <FAQSection
+            question="Existe-t-il des magasins ou des showrooms pour voir les produits
+              de Fermetures and Co ?"
+          >
             <p className="mb-4">
               Nos produits sont exclusivement disponibles en ligne sur
               Fermetures-and-co.fr. Nous n&apos;avons pas de showroom physique
@@ -532,12 +530,9 @@ export default function Index() {
               clients&quot; pour découvrir des installations réelles de nos
               utilisateurs.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Quel est le poids des produits Fermetures and Co ?
-            </h2>
+          <FAQSection question="Quel est le poids des produits Fermetures and Co ?">
             <p className="mb-4">
               Le poids de chaque produit, ainsi que celui des colis associés,
               est indiqué sur la fiche produit correspondante.
@@ -554,12 +549,9 @@ export default function Index() {
               &quot;Caractéristiques techniques&quot;, où le poids exact des
               colis composant le produit est indiqué en bas de la section.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              PayPal, un moyen de paiement sécurisé avec Fermetures and Co !
-            </h2>
+          <FAQSection question="PayPal, un moyen de paiement sécurisé avec Fermetures and Co !">
             <p className="mb-4">
               L&apos;utilisation de PayPal est entièrement gratuite. Il vous
               suffit de créer un compte PayPal ou d&apos;utiliser un compte
@@ -581,12 +573,9 @@ export default function Index() {
               en 4 fois. Nous vous conseillons de vous renseigner directement
               auprès de PayPal pour connaître votre éligibilité à cette option.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Quels sont les coloris disponibles ?
-            </h2>
+          <FAQSection question="Quels sont les coloris disponibles ?">
             <p>
               Actuellement, <span className="font-bold">Fermetures and Co</span>{" "}
               vous propose uniquement le coloris gris anthracite (RAL 7016). Le
@@ -597,13 +586,12 @@ export default function Index() {
               les produits et coloris présents sur notre site sont disponibles à
               l&apos;achat.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Existe-t-il un service de montage pour les produits Fermetures and
-              Co ?
-            </h2>
+          <FAQSection
+            question="Existe-t-il un service de montage pour les produits Fermetures and
+              Co ?"
+          >
             <p className="mb-4">
               Actuellement, nous proposons nos produits uniquement avec le
               service de livraison. Nous ne proposons pas de solution de montage
@@ -627,23 +615,19 @@ export default function Index() {
               <li>Schéma technique</li>
               <li>Notice d&apos;assemblage</li>
             </ul>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Quelles sont les garanties associées aux produits Fermetures and
-              Co ?
-            </h2>
+          <FAQSection
+            question="Quelles sont les garanties associées aux produits Fermetures and
+              Co ?"
+          >
             <p>
               Tous nos produits bénéficient d&apos;une garantie commerciale de 2
               ans.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Précommande, qu&apos;est-ce que c&apos;est ?
-            </h2>
+          <FAQSection question="Précommande, qu'est-ce que c'est ?">
             <p className="mb-4">
               <span className="font-bold">Fermetures and Co</span> met un point
               d&apos;honneur à ne proposer à l&apos;achat que des produits en
@@ -695,12 +679,9 @@ export default function Index() {
               Un email de confirmation vous sera envoyé. Vous serez informé dès
               que votre produit sera de nouveau disponible et livré !
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Quel est le sens d&apos;ouverture des produits Fermetures and Co ?
-            </h2>
+          <FAQSection question="Quel est le sens d'ouverture des produits Fermetures and Co ?">
             <p className="mb-4">
               Le sens d&apos;ouverture de nos produits est défini pour des
               raisons de sécurité. Vous pouvez retrouver le sens
@@ -718,12 +699,9 @@ export default function Index() {
                 techniques seront renseignés.
               </li>
             </ol>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Comment passer une commande ?
-            </h2>
+          <FAQSection question="Comment passer une commande ?">
             <ol className="list-decimal pl-6 space-y-2 mb-4">
               <li>
                 Recherchez et choisissez le produit que vous souhaitez sur notre
@@ -766,12 +744,9 @@ export default function Index() {
               refus de la transaction. Consultez la FAQ pour plus
               d&apos;informations sur les paiements non validés.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Quelles sont les mesures exactes des produits Fermetures and Co ?
-            </h2>
+          <FAQSection question="Quelles sont les mesures exactes des produits Fermetures and Co ?">
             <p>
               Les mesures exactes de nos produits sont disponibles directement
               sur chaque fiche produit. Pour cela, accédez à la fiche produit du
@@ -780,12 +755,9 @@ export default function Index() {
               sont renseignées. Vous pouvez aussi consulter l&apos;onglet
               Caractéristiques techniques pour retrouver ces informations.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Peut-on prendre contact par téléphone ?
-            </h2>
+          <FAQSection question="Peut-on prendre contact par téléphone ?">
             <p>
               Nous avons fait le choix de ne pas proposer de numéro de téléphone
               surtaxé afin de mieux répondre à vos questions par écrit. Nous
@@ -796,13 +768,12 @@ export default function Index() {
               qu&apos;au téléphone. Si nécessaire, nous pouvons vous rappeler
               sur demande via le formulaire de contact.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Comment utiliser le système d&apos;alerte produit de Fermetures
-              and Co ?
-            </h2>
+          <FAQSection
+            question="Comment utiliser le système d'alerte produit de Fermetures
+              and Co ?"
+          >
             <p className="mb-4">
               Si un produit est indisponible, vous pouvez vous inscrire pour
               être alerté de son retour en stock. Voici la procédure pour
@@ -825,12 +796,9 @@ export default function Index() {
                 Vous serez informé dès que ce produit sera à nouveau disponible.
               </li>
             </ol>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Faites-vous du &quot;sur-mesure&quot; ?
-            </h2>
+          <FAQSection question='Faites-vous du "sur-mesure" ?'>
             <p>
               Nos produits sont fabriqués à l&apos;échelle industrielle et
               livrés en kit à assembler. Nous ne proposons pas de sur-mesure
@@ -839,26 +807,24 @@ export default function Index() {
               largeur, mais pas en hauteur. Les dimensions standard sont :
               115/120 cm, 140 cm, 160 cm et 180 cm.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Comment obtenir de l&apos;aide sur un produit ou des informations
-              complémentaires ?
-            </h2>
+          <FAQSection
+            question="Comment obtenir de l'aide sur un produit ou des informations
+              complémentaires ?"
+          >
             <p>
               Vous pouvez nous contacter via notre formulaire de contact dans la
               rubrique Question sur un produit. Nous nous efforcerons de
               répondre à toutes vos questions et de vous fournir l&apos;aide
               nécessaire.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Certains produits sont &quot;indisponibles&quot;, qu&apos;est-ce
-              que cela signifie ?
-            </h2>
+          <FAQSection
+            question='Certains produits sont "indisponibles", qu&apos;est-ce
+              que cela signifie ?'
+          >
             <ul className="list-disc pl-6 space-y-2 mb-4">
               <li>
                 <span className="font-bold">
@@ -879,48 +845,40 @@ export default function Index() {
               Dans les deux cas, vous pouvez créer une alerte pour être notifié
               dès que le produit sera à nouveau disponible.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Certains produits sont réservables, qu&apos;est-ce que cela
-              signifie ?
-            </h2>
+          <FAQSection
+            question="Certains produits sont réservables, qu'est-ce que cela
+              signifie ?"
+          >
             <p>
               Nous proposons de sécuriser votre commande pour des produits qui
               sont sur le point de revenir en stock. Vous pouvez pré-réserver
               ces produits et garantir votre commande à leur arrivée.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Peut-on effectuer un paiement à la réception ?
-            </h2>
+          <FAQSection question="Peut-on effectuer un paiement à la réception ?">
             <p>
               Nous ne proposons pas encore cette option, mais elle est en cours
               d&apos;étude. Plus d&apos;informations seront disponibles dans nos
               CGV.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Puis-je payer en plusieurs fois ma commande ?
-            </h2>
+          <FAQSection question="Puis-je payer en plusieurs fois ma commande ?">
             <p>
               PayPal 4x et Franfinance (3x ou 4x) sont disponibles pour les
               paiements échelonnés. Ces solutions vous permettent de payer en
               plusieurs fois selon les conditions d&apos;éligibilité. Plus de
               détails dans nos CGV &gt; Modes de paiements.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Quels sont les moyens de paiement disponibles sur
-              Fermetures-and-Co ?
-            </h2>
+          <FAQSection
+            question="Quels sont les moyens de paiement disponibles sur
+              Fermetures-and-Co ?"
+          >
             <p className="mb-4">
               Chez Fermetures and Co, nous avons choisi de travailler avec des
               partenaires de paiement reconnus pour vous offrir des solutions
@@ -946,21 +904,17 @@ export default function Index() {
               Pour plus d&apos;informations, consultez nos Conditions Générales
               de Vente dans la section &quot;Moyens de Paiement&quot;.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">Livraison</h2>
+          <FAQSection question="Livraison">
             <p>
               Pour toutes questions concernant la livraison de votre commande,
               n&apos;hésitez pas à nous contacter via notre formulaire de
               contact.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Comment fonctionne la livraison sur Fermetures-and-Co ?
-            </h2>
+          <FAQSection question="Comment fonctionne la livraison sur Fermetures-and-Co ?">
             <p className="mb-4">
               <span className="font-bold">Gestion de la livraison :</span> Le
               processus de livraison est assuré par notre transporteur
@@ -988,12 +942,9 @@ export default function Index() {
                 date si cela vous convient).
               </li>
             </ul>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Quels sont les délais de livraison sur Fermetures-and-Co ?
-            </h2>
+          <FAQSection question="Quels sont les délais de livraison sur Fermetures-and-Co ?">
             <div className="space-y-4">
               <div>
                 <p className="font-bold mb-2">
@@ -1028,36 +979,27 @@ export default function Index() {
                 </p>
               </div>
             </div>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Puis-je prendre rendez-vous pour la livraison ?
-            </h2>
+          <FAQSection question="Puis-je prendre rendez-vous pour la livraison ?">
             <p>
               Oui, toutes nos livraisons sont programmées avec un rendez-vous
               choisi par vos soins, grâce à notre transporteur partenaire. Cela
               vous permet de définir un créneau qui vous convient pour être
               disponible lors de la livraison.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Livrez-vous sur les îles (Corse, …) ?
-            </h2>
+          <FAQSection question="Livrez-vous sur les îles (Corse, …) ?">
             <p>
               Actuellement, nous ne livrons pas sur les îles. Cependant, nous
               travaillons à améliorer notre service et vous tiendrons informé
               dès que nous serons en mesure d&apos;offrir la livraison dans ces
               zones.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Je souhaite savoir où en est ma livraison
-            </h2>
+          <FAQSection question="Je souhaite savoir où en est ma livraison">
             <p>
               Pour suivre l&apos;avancée de votre livraison, connectez-vous à
               votre compte Fermetures and Co, dans la section « Mes commandes ».
@@ -1065,38 +1007,35 @@ export default function Index() {
               votre commande et, le cas échéant, les liens de suivi de vos
               colis.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Je n&apos;ai pas encore eu de contact avec le livreur pour
-              programmer ma livraison, que dois-je faire ?
-            </h2>
+          <FAQSection
+            question="Je n'ai pas encore eu de contact avec le livreur pour
+              programmer ma livraison, que dois-je faire ?"
+          >
             <p>
               Si vous n&apos;avez pas encore été contacté par le livreur, nous
               vous invitons à prendre contact avec le service client de notre
               transporteur partenaire, en vous munissant de votre numéro de
               colis. Ils pourront vous aider à programmer la livraison.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Le livreur n&apos;est pas passé malgré la programmation de la
-              livraison, que dois-je faire ?
-            </h2>
+          <FAQSection
+            question="Le livreur n'est pas passé malgré la programmation de la
+              livraison, que dois-je faire ?"
+          >
             <p>
               Dans ce cas, veuillez contacter le service client de notre
               transporteur partenaire avec votre numéro de colis pour clarifier
               la situation et convenir d&apos;une nouvelle date de livraison.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Un lien de suivi m&apos;a été transmis mais celui-ci ne fonctionne
-              pas, que dois-je faire ?
-            </h2>
+          <FAQSection
+            question="Un lien de suivi m'a été transmis mais celui-ci ne fonctionne
+              pas, que dois-je faire ?"
+          >
             <p>
               Il peut arriver que la mise à jour des informations de suivi
               prenne un peu de temps. Si le lien ne fonctionne pas, nous vous
@@ -1104,13 +1043,12 @@ export default function Index() {
               contactez-nous via notre formulaire de contact et nous nous
               chargerons de résoudre la situation.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              J&apos;ai dû refuser le produit car celui-ci était abîmé, que
-              dois-je faire ?
-            </h2>
+          <FAQSection
+            question="J'ai dû refuser le produit car celui-ci était abîmé, que
+              dois-je faire ?"
+          >
             <p>
               Si vous avez refusé un colis abîmé, notre transporteur nous
               informera de l&apos;incident. Contactez-nous via le formulaire de
@@ -1119,13 +1057,12 @@ export default function Index() {
               tenir informé de l&apos;évolution du retour et de la réexpédition
               du colis.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Dans le suivi de la livraison, on m&apos;annonce un souci
-              d&apos;adresse, que dois-je faire ?
-            </h2>
+          <FAQSection
+            question="Dans le suivi de la livraison, on m'annonce un souci
+              d'adresse, que dois-je faire ?"
+          >
             <p>
               Si un problème d&apos;adresse est signalé, contactez-nous
               immédiatement via notre formulaire de contact. En parallèle, il
@@ -1133,13 +1070,12 @@ export default function Index() {
               jour votre adresse ou fournir toute information supplémentaire
               nécessaire à la livraison.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              J&apos;ai programmé une livraison mais je suis absent, que dois-je
-              faire ?
-            </h2>
+          <FAQSection
+            question="J'ai programmé une livraison mais je suis absent, que dois-je
+              faire ?"
+          >
             <p>
               Si vous êtes absent lors de la livraison, nous vous conseillons de
               contacter notre transporteur partenaire dès que possible pour voir
@@ -1147,24 +1083,18 @@ export default function Index() {
               pourrez suivre votre colis et modifier la date de livraison si
               nécessaire.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Puis-je modifier ma date de livraison ?
-            </h2>
+          <FAQSection question="Puis-je modifier ma date de livraison ?">
             <p>
               Les dates de livraison sont choisies en accord avec notre
               transporteur partenaire. Si vous devez changer la date, contactez
               rapidement le service client de notre transporteur, qui pourra
               vous proposer un créneau alternatif.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Quels transporteurs utilisez-vous ?
-            </h2>
+          <FAQSection question="Quels transporteurs utilisez-vous ?">
             <p>
               Nous avons choisi notre partenaire DPD pour la livraison de vos
               commandes. Grâce à leur expertise, toutes les livraisons sont
@@ -1173,23 +1103,17 @@ export default function Index() {
               afin de recevoir toutes les notifications et de pouvoir répondre
               aux propositions de dates de livraison.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Annulation - Rétractation
-            </h2>
+          <FAQSection question="Annulation - Rétractation">
             <p>
               Pour toute demande d&apos;annulation ou de rétractation concernant
               une commande, merci de nous contacter via notre formulaire de
               contact.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Je souhaite annuler ma commande, que dois-je faire ?
-            </h2>
+          <FAQSection question="Je souhaite annuler ma commande, que dois-je faire ?">
             <div className="space-y-4">
               <div>
                 <p className="font-bold mb-2">
@@ -1217,12 +1141,9 @@ export default function Index() {
                 </p>
               </div>
             </div>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Je souhaite me rétracter, que dois-je faire ?
-            </h2>
+          <FAQSection question="Je souhaite me rétracter, que dois-je faire ?">
             <p>
               Conformément à nos Conditions Générales de Vente, vous avez
               jusqu&apos;à 14 jours après réception de votre commande pour
@@ -1231,13 +1152,12 @@ export default function Index() {
               détails et la procédure de rétractation dans cette section de nos
               CGV.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Je souhaite modifier l&apos;adresse de livraison, quelles sont mes
-              possibilités ?
-            </h2>
+          <FAQSection
+            question="Je souhaite modifier l'adresse de livraison, quelles sont mes
+              possibilités ?"
+          >
             <div className="space-y-4">
               <div>
                 <p className="font-bold mb-2">
@@ -1263,22 +1183,18 @@ export default function Index() {
                 </p>
               </div>
             </div>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">Problème de commande</h2>
+          <FAQSection question="Problème de commande">
             <p>
               Si vous rencontrez un problème avec votre commande, nous vous
               invitons à nous contacter via notre formulaire de contact. Toutes
               les questions ci-dessus peuvent être gérées en utilisant ce
               formulaire.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              J&apos;ai reçu le mauvais produit, que dois-je faire ?
-            </h2>
+          <FAQSection question="J'ai reçu le mauvais produit, que dois-je faire ?">
             <p>
               Si vous avez reçu un produit incorrect, nous vous prions de bien
               vouloir nous fournir les détails de la commande et des colis
@@ -1286,12 +1202,9 @@ export default function Index() {
               sur les démarches à suivre pour retourner le colis et nous
               permettre de vous envoyer le bon produit.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Comment trouver ma facture pour une commande déjà effectuée ?
-            </h2>
+          <FAQSection question="Comment trouver ma facture pour une commande déjà effectuée ?">
             <p className="mb-4">
               Pour obtenir votre facture, voici les étapes à suivre :
             </p>
@@ -1316,12 +1229,9 @@ export default function Index() {
                 votre facture.
               </li>
             </ol>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Paiement en attente, qu&apos;est-ce que cela signifie ?
-            </h2>
+          <FAQSection question="Paiement en attente, qu'est-ce que cela signifie ?">
             <p className="mb-4">
               Un paiement en attente peut se produire pour plusieurs raisons,
               mais cela est souvent lié à une précommande.
@@ -1342,12 +1252,9 @@ export default function Index() {
                 passera en « refusé » et vous serez informé par email.
               </li>
             </ul>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Mon paiement a été refusé, que dois-je faire ?
-            </h2>
+          <FAQSection question="Mon paiement a été refusé, que dois-je faire ?">
             <p className="mb-4">
               Si votre paiement a été refusé, vous recevrez une notification à
               l&apos;écran immédiatement après la commande, et un email vous
@@ -1379,12 +1286,9 @@ export default function Index() {
               </li>
               <li>Recommencez la commande après avoir corrigé le problème.</li>
             </ol>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Je souhaite me rétracter, quelles sont les démarches à suivre ?
-            </h2>
+          <FAQSection question="Je souhaite me rétracter, quelles sont les démarches à suivre ?">
             <p className="mb-4">
               <span className="font-bold">Droit de rétractation :</span> Vous
               avez jusqu&apos;à 14 jours après la réception de votre commande
@@ -1402,37 +1306,30 @@ export default function Index() {
               Assurez-vous de lire attentivement nos Conditions Générales de
               Vente (CGV) concernant les conditions du droit de rétractation.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Le produit ne me convient pas, puis-je l&apos;échanger ?
-            </h2>
+          <FAQSection question="Le produit ne me convient pas, puis-je l'échanger ?">
             <p>
               Actuellement, les échanges de produits ne sont pas possibles.
               Toutefois, si vous êtes toujours dans les délais de rétractation,
               vous pouvez demander une rétractation via notre formulaire de
               contact.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              J&apos;ai reconnu un problème sur mon produit après la livraison,
-              que dois-je faire ?
-            </h2>
+          <FAQSection
+            question="J'ai reconnu un problème sur mon produit après la livraison,
+              que dois-je faire ?"
+          >
             <p>
               Si vous constatez un problème avec un produit après la livraison,
               contactez-nous rapidement via notre formulaire de contact section
               « J&apos;ai un problème avec ma commande ». Nous analyserons la
               situation et trouverons une solution pour vous.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Ma commande est incomplète, que dois-je faire ?
-            </h2>
+          <FAQSection question="Ma commande est incomplète, que dois-je faire ?">
             <div className="space-y-4">
               <div>
                 <p className="font-bold mb-2">Vérifiez votre commande :</p>
@@ -1457,25 +1354,21 @@ export default function Index() {
                 produit.
               </p>
             </div>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Mon produit dysfonctionne, que dois-je faire ?
-            </h2>
+          <FAQSection question="Mon produit dysfonctionne, que dois-je faire ?">
             <p>
               Si votre produit ne fonctionne pas correctement, contactez-nous
               via le formulaire de contact en sélectionnant la section
               appropriée (par exemple : « Mon produit ne fonctionne pas »). Nous
               analyserons la situation et trouverons une solution pour vous.
             </p>
-          </section>
+          </FAQSection>
 
-          <section>
-            <h2 className="text-2xl font-bold mb-4">
-              Mon produit dysfonctionne pour des raisons météorologiques, que
-              dois-je faire ?
-            </h2>
+          <FAQSection
+            question="Mon produit dysfonctionne pour des raisons météorologiques, que
+              dois-je faire ?"
+          >
             <p>
               Si le dysfonctionnement de votre produit est lié à des conditions
               météorologiques (par exemple, exposition à l&apos;humidité ou aux
@@ -1483,7 +1376,7 @@ export default function Index() {
               contact. Nous étudierons le cas et nous vous guiderons pour
               trouver une solution.
             </p>
-          </section>
+          </FAQSection>
         </div>
       </div>
       <Footer />
