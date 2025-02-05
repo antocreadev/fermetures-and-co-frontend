@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import { PRODUCTS } from "@/products";
+import React, { useState } from "react";
 
 const GlobalSearchInput = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -43,7 +43,7 @@ const GlobalSearchInput = () => {
             <a href={`/product/${product.id}`} key={product.id}>
               <li className="p-2 hover:bg-neutral-200 flex gap-6">
                 <img className="w-16" src={product.imageUrls[0]} alt="" />
-                {product.name}
+                {product.name || ""}
               </li>
             </a>
           ))}
